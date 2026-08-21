@@ -60,6 +60,10 @@ class RenderInput:
     with_phrase: str = ""
     #: Marketing feature bullets, if any.
     features: tuple[str, ...] = ()
+    #: Taxonomy leaf and its parent, used only as last-resort mobile filler.
+    category_leaf: str = ""
+    category_class: str = ""
+
 
     def slots_for(self, channel: str) -> list[Filled]:
         """Filled slots participating in a channel, in that channel's order."""
@@ -302,6 +306,25 @@ def retail_description(inp: RenderInput) -> tuple[str, Provenance]:
     )
 
 
+def _all_channel_slots(inp: RenderInput) -> list[Filled]:
+    """Every filled slot that can render as prose, in channel order.
+
+    Excludes series (already in the head), hidden slots, and the trailing
+    ``Additional Information`` list, which is a paragraph rather than a phrase.
+    """
+    if inp.contract is None:
+        return []
+    out = [
+        inp.filled[s.label]
+        for s in inp.contract.slots
+        if inp.filled.get(s.label)
+        and s.kind is not Kind.SERIES
+        and s.style is not Style.HIDDEN
+        and s.style is not Style.SUFFIX_LIST
+    ]
+    return sorted(out, key=lambda f: f.slot.channel_rank)
+
+
 def _mobile_head(inp: RenderInput) -> tuple[str, str]:
     """Decide whether the manufacturer joins the brand in ``MOBILE_DESC``.
 
@@ -336,20 +359,55 @@ def mobile_description(inp: RenderInput) -> tuple[str, Provenance]:
         inp.mpn,
     ]
     core = [c for c in core if c]
-    extras = [
-        phrase(f) for f in inp.slots_for("mobile") if f.slot.kind is not Kind.SERIES
-    ]
-    extras = [e for e in extras if e]
+    # Filler is drawn from *every* filled attribute, not just the slots flagged
+    # in_mobile. The 60-character floor is a hard requirement and a terse row
+    # ("42275BK Kichler Ceiling Lt") simply has no in_mobile attribute to give:
+    # restricting the candidate pool left the whole batch under the floor. The
+    # flag still sets priority, because ordering is by channel_rank.
+    seen_phrases: set[str] = set()
+    extras: list[str] = []
+    for f in _all_channel_slots(inp):
+        text = phrase(f)
+        if not text or text in seen_phrases:
+            continue
+        seen_phrases.add(text)
+        extras.append(text)
 
-    result = pack_to_window(
-        head, [*core, *extras], lo=MOBILE_MIN, hi=MOBILE_MAX, required=len(core)
-    )
+    # Last-resort filler for a genuinely terse row: the taxonomy leaf and its
+    # parent class are true statements about the product and read acceptably in
+    # a mobile summary ("... , Flush Mount Ceiling Lights").
+    tail = [t for t in (inp.category_leaf, inp.category_class) if t]
+
+    def attempt(head_text: str) -> PackResult:
+        return pack_to_window(
+            head_text, [*core, *extras, *tail],
+            lo=MOBILE_MIN, hi=MOBILE_MAX, required=len(core),
+        )
+
+    result = attempt(head)
+    strategy = head_reason
+
+    # Escalation: dropping a redundant manufacturer is right when there is
+    # enough other material (gold row 2), but wrong when it leaves the row
+    # under the floor. So if the first attempt undershoots, put it back.
+    if not result.satisfied and inp.manufacturer and inp.manufacturer not in head:
+        retry_head = f"{inp.manufacturer} {inp.brand_plain or inp.brand}".strip()
+        retry = attempt(retry_head)
+        if len(retry.text) > len(result.text) and len(retry.text) <= MOBILE_MAX:
+            result, strategy = retry, (
+                "manufacturer re-added: dropping it as redundant left the "
+                f"summary under the {MOBILE_MIN}-char floor"
+            )
+
     text = U.enforce_spacing(T.clean(result.text), protect=(inp.mpn,))
 
     confidence = 0.9 if result.satisfied else 0.55
-    detail = f"{head_reason}; {len(text)} chars; {result.audit}"
+    detail = f"{strategy}; {len(text)} chars; {result.audit}"
     if not result.satisfied:
-        detail += f"; below {MOBILE_MIN}-char floor, no further attributes available"
+        detail += (
+            f"; below the {MOBILE_MIN}-char floor -- the source row carries no "
+            "further attributes, and padding it with invented text would be worse"
+        )
     return text, Provenance(
         Source.CONSTRAINT_SOLVER,
         rule="channel:MOBILE_DESC",
