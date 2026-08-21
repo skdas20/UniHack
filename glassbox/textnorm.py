@@ -129,11 +129,26 @@ _NOISE_RE = re.compile(
 )
 
 
+#: Characters that must survive normalisation untouched. NFKC is wanted here --
+#: it folds ``″`` to ``"`` and ``⁄`` to ``/`` -- but it also decomposes ``™``
+#: into the two letters ``TM`` and ``℠`` into ``SM``, which silently destroys
+#: the registered marks the delivery format mandates on every brand name. The
+#: gold row is ``With CleanBoost™``, not ``With CleanBoostTM``. So these are
+#: parked in the Unicode private-use area across the NFKC call and restored.
+_PROTECTED = "®™©℠"
+_PROTECT_MAP = {ch: chr(0xE000 + i) for i, ch in enumerate(_PROTECTED)}
+_RESTORE_MAP = {v: k for k, v in _PROTECT_MAP.items()}
+_PROTECT_RE = re.compile("|".join(map(re.escape, _PROTECT_MAP)))
+_RESTORE_RE = re.compile("|".join(map(re.escape, _RESTORE_MAP)))
+
+
 def clean(text: str | None) -> str:
     """Normalise quotes and whitespace without changing meaning."""
     if not text:
         return ""
-    out = unicodedata.normalize("NFKC", text)
+    out = _PROTECT_RE.sub(lambda m: _PROTECT_MAP[m.group(0)], text)
+    out = unicodedata.normalize("NFKC", out)
+    out = _RESTORE_RE.sub(lambda m: _RESTORE_MAP[m.group(0)], out)
     out = _QUOTE_RE.sub(lambda m: _QUOTE_MAP[m.group(0)], out)
     out = re.sub(r"\s+", " ", out).strip()
     # Distributor exports often leave a dangling separator.

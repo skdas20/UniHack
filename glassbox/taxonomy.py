@@ -66,6 +66,15 @@ class Category:
     #: Disqualifying evidence. A veto is absolute -- it is how "Dishwasher" is
     #: kept from claiming "Dishwasher Detergent".
     veto: tuple[str, ...] = ()
+    #: Attributes the category itself establishes. Choosing the leaf
+    #: `Flush Mount Ceiling Lights` *is* asserting `Mounting Type = Flush
+    #: Mount`; classifying as `PVC Decking Boards` *is* asserting
+    #: `Material = PVC`. These are entailments of the classification, not
+    #: guesses, so they are emitted as DERIVED with the classifier's own
+    #: confidence -- and they lift attribute coverage on exactly the terse rows
+    #: ("42275BK Kichler Ceiling Lt") where text extraction has nothing to work
+    #: with.
+    implies: tuple[tuple[str, str], ...] = ()
 
     @property
     def leaf(self) -> str:
@@ -91,6 +100,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Dishwasher", contract="dishwasher",
         must=("dishwasher", "dish washer"),
         veto=("detergent", "pod", "rinse aid", "cleaner", "rack only"),
+        implies=(("Mounting Type", "Built-in"),),
     ),
     Category(
         f"{APPLIANCES}>Kitchen Appliances>Refrigerators",
@@ -177,6 +187,7 @@ CATEGORIES: tuple[Category, ...] = (
         veto=("led light", "downlight", "troffer", "fixture", "wall pack",
               "strip light", "tape light", "flood light", "ceiling", "pendant",
               "chandelier", "sconce", "driver", "power supply"),
+        implies=(("Bulb Technology", "LED"),),
     ),
     Category(
         f"{LIGHTING}>Lamps & Light Bulbs>Incandescent Lamps",
@@ -185,6 +196,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("incandescent", "incan", "halogen", "hal"),
         boost=("bulb", "lamp"),
         veto=("fixture",),
+        implies=(("Bulb Technology", "Incandescent"),),
     ),
     Category(
         f"{LIGHTING}>Lamps & Light Bulbs>Fluorescent Lamps",
@@ -193,12 +205,14 @@ CATEGORIES: tuple[Category, ...] = (
         must=("fluorescent", "fluor", "flor", "cfl"),
         boost=("t8", "t5", "t12", "tube", "bulb", "lamp"),
         veto=("fixture", "ballast", "troffer"),
+        implies=(("Bulb Technology", "Fluorescent"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Chandeliers",
         "Electrical", "Lighting", "Fixtures",
         "Chandelier", contract="fixture",
         must=("chandelier", "chand"),
+        implies=(("Mounting Type", "Chain Hung"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Pendant Lights",
@@ -206,6 +220,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Pendant Light", contract="fixture",
         must=("pendant", "pend"),
         boost=("mini", "linear", "island"),
+        implies=(("Mounting Type", "Pendant"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Wall Sconces",
@@ -213,12 +228,14 @@ CATEGORIES: tuple[Category, ...] = (
         "Wall Light", contract="fixture",
         must=("sconce", "wall light", "wall lt", "wall lantern", "wall mount light"),
         boost=("bath", "vanity", "exterior", "ext"),
+        implies=(("Mounting Type", "Wall Mount"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Bath & Vanity Lights",
         "Electrical", "Lighting", "Fixtures",
         "Bath Light", contract="fixture",
         must=("bath light", "bath lt", "vanity light", "vanity lt", "bath bar"),
+        implies=(("Mounting Type", "Wall Mount"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Flush Mount Ceiling Lights",
@@ -227,6 +244,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("ceiling light", "ceiling lt", "flush mount", "semi-flush",
               "semi flush", "ceiling fixture"),
         veto=("fan",),
+        implies=(("Mounting Type", "Flush Mount"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Recessed Downlights",
@@ -235,6 +253,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("downlight", "down light", "recessed", "recsd", "retrofit trim",
               "canless", "wafer"),
         boost=("trim", "housing", "baffle", "gimbal"),
+        implies=(("Mounting Type", "Recessed"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Exterior Wall Lights",
@@ -242,6 +261,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Exterior Wall Light", contract="fixture",
         must=("ext wall lt", "exterior wall light", "outdoor wall light",
               "outdoor lantern", "porch light"),
+        implies=(("Mounting Type", "Wall Mount"), ("Location Rating", "Outdoor"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Ceiling Fans",
@@ -250,6 +270,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("ceiling fan", "fan"),
         boost=("blade", "downrod", "remote", "reversible"),
         veto=("bath fan", "exhaust fan", "inline fan", "fan blade only"),
+        implies=(("Mounting Type", "Ceiling Mount"),),
     ),
     # ---------------- abrasives & power-tool accessories ----------------
     Category(
@@ -259,6 +280,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("cut off", "cutoff", "cut-off", "cut and grind", "cut n grind",
               "cut & grind"),
         boost=("disc", "wheel", "masonry", "metal", "type 1", "type 27"),
+        implies=(("Wheel Type", "Type 1"),),
     ),
     Category(
         f"{TOOLS}>Power Tool Accessories>Grinding Wheels",
@@ -266,6 +288,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Grinding Wheel", contract="abrasive_wheel",
         must=("grinding wheel", "grinding disc", "grind wheel"),
         boost=("metal", "masonry", "type 27", "depressed center"),
+        implies=(("Wheel Type", "Type 27"),),
     ),
     Category(
         f"{TOOLS}>Power Tool Accessories>Sanding Belts",
@@ -273,6 +296,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Sanding Belt", contract="abrasive_sheet",
         must=("sanding belt", "sand belt"),
         boost=("grit", "aluminum oxide", "zirconia", "ceramic"),
+        implies=(("Backing Material", "Cloth"),),
     ),
     Category(
         f"{TOOLS}>Power Tool Accessories>Sanding Discs",
@@ -348,12 +372,14 @@ CATEGORIES: tuple[Category, ...] = (
         "Tools", "Power Tools", "Saws",
         "Bandsaw", contract="power_tool",
         must=("bandsaw", "band saw"),
+        implies=(("Power Source", "Corded Electric"),),
     ),
     Category(
         f"{TOOLS}>Power Tools>Table Saws",
         "Tools", "Power Tools", "Saws",
         "Table Saw", contract="power_tool",
         must=("table saw", "cabinet saw", "jobsite saw"),
+        implies=(("Power Source", "Corded Electric"),),
     ),
     Category(
         f"{TOOLS}>Power Tools>Miter Saws",
@@ -394,6 +420,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("charger", "chgr", "battery", "batt pack", "starter kit"),
         boost=("fast charger", "dual port", "ah", "amp hour", "12v", "18v", "20v", "60v"),
         veto=("battery light", "flashlight"),
+        implies=(("Power Source", "Cordless"),),
     ),
     Category(
         f"{TOOLS}>Hand Tools>Layout & Measuring",
@@ -413,6 +440,7 @@ CATEGORIES: tuple[Category, ...] = (
         boost=("grooved", "square edge", "sq edge", "grvd", "capped", "composite"),
         veto=("fascia", "railing", "baluster", "post", "stair", "riser",
               "cleaning", "cleaner", "screw", "clip", "fastener", "pvc decking"),
+        implies=(("Material", "Composite"),),
     ),
     Category(
         f"{BUILDING}>Decking & Railing>PVC Decking Boards",
@@ -420,6 +448,7 @@ CATEGORIES: tuple[Category, ...] = (
         "PVC Decking Board", contract="decking",
         must=("pvc decking", "pvc deck board", "cellular pvc decking"),
         veto=("fascia", "railing", "trim"),
+        implies=(("Material", "PVC"),),
     ),
     Category(
         f"{BUILDING}>Decking & Railing>Deck Fascia",
@@ -456,12 +485,14 @@ CATEGORIES: tuple[Category, ...] = (
         must=("hardiepanel", "hardieplank", "hardietrim", "hardiebacker",
               "fiber cement"),
         boost=("smooth", "cedarmill", "primed", "prmd", "select cedarmill"),
+        implies=(("Material", "Fiber Cement"),),
     ),
     Category(
         f"{BUILDING}>Siding & Trim>Engineered Wood Siding",
         "Building Materials", "Siding", "Engineered Wood",
         "Engineered Wood Siding", contract="sheet_good",
         must=("smartside", "smart side", "engineered wood siding", "lap siding"),
+        implies=(("Material", "Engineered Wood"),),
     ),
     Category(
         f"{BUILDING}>Panels & Sheet Goods>Sheathing & Panels",
@@ -522,6 +553,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Building Wire", contract="wire",
         must=("thhn", "thwn", "romex", "nm-b", "uf-b", "mc cable", "building wire"),
         boost=("awg", "copper", "aluminum", "stranded", "solid"),
+        implies=(("Conductor Material", "Copper"),),
     ),
     Category(
         f"{ELECTRICAL}>Wire & Cable>Portable Cord",
@@ -530,6 +562,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("so cord", "sjoow", "sjoo", "soow", "sjtw", "portable cord",
               "extension cord", "cord reel"),
         boost=("linear foot", "per foot"),
+        implies=(("Insulation Type", "SO"), ("Conductor Strand", "Stranded"),),
     ),
     Category(
         f"{ELECTRICAL}>Wire & Cable>Service Entrance Cable",
@@ -538,6 +571,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("triplex", "quadruplex", "service entrance", "se cable",
               "ud cable", "urd"),
         boost=("aluminum", "overhead", "direct burial"),
+        implies=(("Insulation Type", "USE"),),
     ),
     Category(
         f"{ELECTRICAL}>Power Distribution>Load Centers",
@@ -560,6 +594,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("receptacle", "recep", "outlet", "gfci"),
         boost=("duplex", "tamper resistant", "usb", "15a", "20a", "decora"),
         veto=("outlet box", "cover plate only"),
+        implies=(("Configuration", "Duplex"),),
     ),
     Category(
         f"{ELECTRICAL}>Wiring Devices>Switches & Dimmers",
@@ -596,6 +631,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("drywall", "gypsum", "sheetrock", "easi-lite", "firelite",
               "wallboard", "cement board", "backer board"),
         boost=("type x", "mold resistant", "moisture resistant", "lightweight"),
+        implies=(("Material", "Gypsum"),),
     ),
     Category(
         f"{BUILDING}>Roofing>Asphalt Shingles",
@@ -604,6 +640,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("shingle", "duration", "trudef", "landmark", "timberline",
               "architectural shingle"),
         boost=("bdl", "bundle", "sq", "laminated", "hip and ridge", "starter"),
+        implies=(("Material", "Asphalt"),),
     ),
     Category(
         f"{BUILDING}>Roofing>Metal Roofing Panels",
@@ -611,6 +648,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Metal Roofing Panel", contract="sheet_good",
         must=("rib xl", "premier rib", "metal roof", "ribbed panel",
               "standing seam", "corrugated panel", "r panel"),
+        implies=(("Material", "Steel"),),
     ),
     Category(
         f"{BUILDING}>Roofing>Underlayment & Ice Barrier",
@@ -634,6 +672,7 @@ CATEGORIES: tuple[Category, ...] = (
               "yellow pine", "spruce", "hemlock", "redwood", "poplar board"),
         boost=("stk", "s4s", "1s2e", "smooth", "rough sawn", "clear"),
         veto=("decking", "siding", "plywood", "shingle"),
+        implies=(("Treatment", "Untreated"),),
     ),
     Category(
         f"{BUILDING}>Windows & Doors>Thresholds & Sills",
@@ -695,6 +734,7 @@ CATEGORIES: tuple[Category, ...] = (
         "Ceiling Tile", contract="sheet_good",
         must=("ceiling tile", "ceiling panel", "fissured", "acoustical tile",
               "lay-in panel", "drop ceiling"),
+        implies=(("Material", "Mineral Fiber"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Strip & Tape Lighting",
@@ -710,6 +750,7 @@ CATEGORIES: tuple[Category, ...] = (
         "High Bay Light", contract="fixture",
         must=("highbay", "high bay", "low bay", "area light", "wall pack",
               "canopy light", "parking lot light"),
+        implies=(("Mounting Type", "Ceiling Mount"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>Security & Flood Lights",
@@ -718,6 +759,7 @@ CATEGORIES: tuple[Category, ...] = (
         must=("motion lt", "motion light", "security light", "flood light",
               "floodlight", "motion sensor light", "dusk to dawn"),
         boost=("pir", "adjustable head", "photocell"),
+        implies=(("Location Rating", "Outdoor"),),
     ),
     Category(
         f"{LIGHTING}>Light Fixtures>LED Fixtures",
@@ -1040,9 +1082,27 @@ def all_classpaths() -> tuple[str, ...]:
 
 
 def prepare_text(desc: str, mpn: str) -> str:
-    """Normalise a raw description into the form the matchers expect."""
-    body, _ = T.strip_leading_mpn(T.clean(desc), mpn)
+    """Normalise a raw description into the form the matchers expect.
+
+    Deliberately keeps the **full** description, MPN included, alongside the
+    stripped-and-expanded form. Removing the leading MPN is right for
+    vocabulary induction but wrong for classification, because sometimes the
+    MPN *is* the specification: the row whose MPN is ``10-4 SO`` and whose
+    description is ``10-4 SO Cord (Linear Foot)`` reduces to the single word
+    ``Cord`` once its MPN is stripped, and with it goes the only evidence that
+    this is an SO portable cord.
+
+    All forms are concatenated so the matcher sees the raw shorthand
+    (``Ceiling Lt``) and its expansion (``Ceiling Light``) simultaneously.
+    """
+    full = T.clean(desc)
+    body, _ = T.strip_leading_mpn(full, mpn)
     body, _ = T.strip_noise(body)
     expanded = T.expand(body)
-    # keep both forms visible to the matcher: "Ceiling Lt" and "Ceiling Light"
-    return f"{body} | {expanded}" if expanded.lower() != body.lower() else body
+    forms = [full]
+    seen = {full.lower()}
+    for candidate in (body, expanded):
+        if candidate and candidate.lower() not in seen:
+            forms.append(candidate)
+            seen.add(candidate.lower())
+    return " | ".join(forms)
