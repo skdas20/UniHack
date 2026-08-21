@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.DS_Store
+.ipynb_checkpoints/
+outputs/*.xlsx
+outputs/*.csv
+outputs/*.json
+!outputs/.gitkeep
+models/*/
+!models/.gitkeep
+.streamlit/secrets.toml
+*.egg-info/
+.pytest_cache/

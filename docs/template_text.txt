@@ -1,0 +1,71 @@
+--- ppt/slides/slide1.xml ---
+Guidelines
+Kindly use the given template for submitting your 
+prototype
+(Make a copy of the template)
+One team is only required to submit one project.
+Follow this template while preparing your presentation.
+You are welcome to add as many POCs and design concepts to support your project.
+The project should be feasible and the team members should be capable enough, to come up with the fully functioning prototype of the same idea, if required.
+
+--- ppt/slides/slide2.xml ---
+Team Details
+
+Team name: 
+Team leader name: 
+
+--- ppt/slides/slide3.xml ---
+Brief about your solution
+
+--- ppt/slides/slide4.xml ---
+1. How does your solution enrich minimal product information?
+Briefly explain how your solution transforms limited inputs (e.g., Part Number, Brand, Short Description) into rich product intelligence.
+
+2. How does your solution ensure accuracy and trust in the generated product data?
+Describe your validation strategy. This may include:
+(Confidence scoring, Multi-source verification, Human review, Rule-based validation, AI validation, Other approaches)
+
+3. What makes your solution scalable for enterprise product catalogs?
+Describe how your solution would handle: Large product catalogs, New manufacturers, Different document formats, Continuous product updates
+
+--- ppt/slides/slide5.xml ---
+Opportunities
+How different is it from any of the other existing ideas?
+How will it be able to solve the problem statemen
+t given
+?
+USP of the proposed solution
+
+
+--- ppt/slides/slide6.xml ---
+List of features offered by the solution
+
+--- ppt/slides/slide7.xml ---
+Process flow diagram or Use-case diagram
+
+--- ppt/slides/slide8.xml ---
+Wireframes/Mock diagrams of the proposed solution (optional)
+
+--- ppt/slides/slide9.xml ---
+Architecture diagram of the proposed solution
+
+--- ppt/slides/slide10.xml ---
+Technologies used in the solution
+
+--- ppt/slides/slide11.xml ---
+Estimated implementation cost (optional)
+
+--- ppt/slides/slide12.xml ---
+Snapshots of the MVP
+
+--- ppt/slides/slide13.xml ---
+Additional Details/Future Development (if any)
+
+--- ppt/slides/slide14.xml ---
+Provide links to your:
+
+GitHub Public Repository
+Demo Video Link (3 Minutes)
+Working Prototype Link
+
+--- ppt/slides/slide15.xml ---

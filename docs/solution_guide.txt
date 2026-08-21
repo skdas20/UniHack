@@ -1,0 +1,114 @@
+UniHack Solution Guide
+
+Published using Google Docs
+Report abuseLearn more
+
+UniHack Solution Guide
+Updated automatically every 5 minutes
+
+1. What you are actually building
+Unilog builds product content for industrial distributors - the manufacturer names, titles, descriptions, attributes and images that let a buyer find the right part online. The raw data a distributor hands over is rarely usable: descriptions are cryptic ("3/8 CPLG BRS 150#"), the same manufacturer appears under six different spellings, units are written five different ways, and most fields are simply empty.
+Your challenge is the enrichment pipeline that sits in between. Given a messy row, produce a complete, standardised, search-ready product record.
+Input analysis → de-duplication → taxonomy & classification → attribute extraction → enrichment from manufacturer sources → cleansing and normalisation → description building → digital assets.
+You are not expected to automate all of it. Picking two or three steps and doing them convincingly, with evidence, beats a shallow attempt at everything. But, yeah, if you wanna do all! Feel free to…
+2. The datasets, one by one
+There are files fall into four groups. Only two contain items to be processed; the rest tell you how to process them.
+ | 
+Dataset | 
+What it contains | 
+Why it matters / how to use it
+ | 
+A. WORKING DATA - the items you actually process
+ | 
+Sample-1000_Items.xlsx | 
+1,000 raw catalogue rows, 6 columns: Mfg_Part_Num, Part_Desc, E1_Brand, Unilog_Brand, DIB_Brand, Part_Manuf. | 
+This is your main input at scale. Descriptions are short, abbreviated and inconsistent; brand fields are often placeholders such as "-- Unbranded --". Use it to test your pipeline on volume.
+ | 
+Unilog-Sample_200_Items-Input-vs-Output.xlsx | 
+Two sheets. Input = 200 raw rows (adds Dept / Class / Fine and SKU). Delivery Format = the same 200 items fully enriched across 252 columns. | 
+The most important file in the pack: it is your labelled ground truth. Input is what your model receives; Delivery Format is what a correct answer looks like. Use it to design your output schema and to score accuracy.
+ | 
+B. THE RULE BOOK - how output must be written
+ | 
+UNILOG_INTERNAL_CONTENT_GUIDELINES.docx | 
+The master content standard: construction formulas, character limits and casing rules for every field, plus category-specific rules, sourcing rules and digital-asset specs. | 
+Treat this as the specification for your generation logic. Formulas here (e.g. Product Title = Brand + Series + MPN + Item Type + key attributes) can be encoded directly as prompts or validation rules.
+ | 
+Unilog_Master_UOM_Standards_Abbreviations_and_Terms.xlsx | 
+Sheet 1: ~500 approved unit-of-measure abbreviations across 89 measurement types, with the exact capture form and a worked example. Sheet 2: 22 house-style rules (hyphenation, symbols, technical abbreviations). | 
+The only permitted way to write a unit anywhere in your output. Convert "inches", "IN.", "inch" to the single approved form, and always keep a space between the number and the unit (24 in, not 24in).
+ | 
+Decimal_Fraction.xlsx | 
+63 exact inch conversions from 1/64 (0.015625) to 63/64 (0.984375), laid out as four side-by-side Fraction | Decimal blocks. | 
+A simple lookup table. Manufacturers publish decimals; trade buyers search fractions. Convert 0.5 to 1/2 and 50.25 in to 50-1/4 in. Note the layout: read it as four stacked pairs of columns, not one.
+ | 
+C. MASTER DATA & CONTROLLED VOCABULARIES - the allowed values
+ | 
+UniCat_Manufacturer_and_Brand_List.xlsx | 
+27,000+ approved rows: MANUFACTURER_NAME, MANUFACTURER_CODE, BRAND_NAME, BRAND_CODE - with exact legal casing, spacing, suffixes (Inc / LLC / Ltd) and ® / ™ symbols. | 
+Use it to normalise messy supplier strings to a canonical manufacturer, then pick the paired brand. Where an item has no brand, the manufacturer name is used instead. Good candidate for fuzzy matching.
+ | 
+Unicat_Lov_v1_0_Updated_With_Remarks.xlsx | 
+The cross-category List of Values: ~161,000 rows of Classpath | Leaf Node | Filtering Y/N | Attribute Label | Attribute Values | Normalized Label | Normalized Values | Guidelines | Remarks. | 
+Tells you which attributes apply to a given classpath, which are filterable, and the normalised form each value must take. Effectively a constrained vocabulary your model must generate within, rather than free text.
+ | 
+FAUCETS_LOV.xlsx | 
+A strict category spec for Kitchen and Bath Sink Faucets. Four sheets each: Summary (classpath, UNSPSC), Online Description build order, Attribute Detail (sequence, filtering flag, permitted values, definitions, synonyms), and a visual style guide. | 
+A worked example of one category done to full depth. Attribute order and title word order are fixed here, so it is an excellent scope for a demo: narrow, well-specified, easy to evaluate.
+ | 
+Fittings_LOV.xlsx | 
+A strict category spec for pipe / tube / hose fittings: 390 valid Fitting Types with source URLs, 1,472 manufacturer connection-type variants mapped to 515 canonical values, and 464 Material Construction values mapped to a simpler 113-value Material list. | 
+The clearest example of many-to-one normalisation: many supplier spellings collapse to one approved value. Ideal for building and testing a mapping or entity-resolution component.
+ | 
+D. INDEX
+ | 
+Reference_Documents_Summary.xlsx | 
+A one-page index of the seven reference files above: format, class, role, contents and the part each plays in enrichment. | 
+Read this first. It is the client's own map of the pack and confirms which files are rules, which are master data and which are lookups.
+
+3. How to read the data: one worked example
+Row 1 of the 200-item file shows the whole job in miniature. The input is a single abbreviated string. The delivery format expands it into more than 250 fields, each written to a different rule:
+ | 
+INPUT — Part_Desc | 
+PDSH4816AF Dishwasher SS - Display Only
+ | 
+Classpath | 
+Appliances & Consumer Electronics > Kitchen Appliances > Built-In Dishwashers
+ | 
+Brand / MPN | 
+FRIGIDAIRE®  |  PDSH4816AF
+ | 
+Invoice Desc (≤40 char, CAPS) | 
+DISHWASHER LEG 5 SST 120V 15A 50-1/4IN
+ | 
+Mobile Desc (60–80 char) | 
+Rheem Manufacturing FRIGIDAIRE, Dishwasher, Professional Series, PDSH4816AF
+ | 
+Product Title / Short Desc | 
+FRIGIDAIRE® Professional Series PDSH4816AF Dishwasher With CleanBoost™, Leg Mounting, 5-Wash Cycle, Stainless Steel
+ | 
+Long Description | 
+FRIGIDAIRE® Dishwasher With CleanBoost™, Professional Series, 5 Wash Cycles, 120 V, 15 A, Leg Mounting, 24 in W x 24-1/4 in D, 50-1/4 in Depth With Door Open, 47 dBA Sound Level, Stainless Steel
+ | 
+Attributes | 
+Series = Professional Series; Mounting = Leg; Wash Cycles = 5; Sound Level = 47 dBA …
+
+Notice that the same product information is rewritten five times at five different lengths and casings - for the till receipt, the mobile app, the search results page, the product page and the marketing copy. Getting these formats right is most of the task.
+4. Key points to keep in mind
+Start from the ground truth. Build against the 200-item Input vs Delivery Format file before you touch the 1,000-item file. It is the only place where you can measure whether your output is right.
+The output is constrained, not creative. Attribute values must come from the LOV files; manufacturer and brand names must match the approved list exactly, symbols and all; units must use the approved abbreviation. A fluent description made of invented values scores zero.
+Placeholders are not data. "-- Unbranded --", "-- No Unilog Brand --" and "-- No DIB Brand --" mean the field is empty. Filter them out before training, matching or prompting.
+Expect messy spreadsheets. Several files have merged cells, multi-row headers, side-by-side column blocks (Decimal_Fraction) or notes parked in stray columns (the UOM sheet). Inspect each sheet before parsing it; do not assume row 1 is a clean header.
+Real data is imperfect - say so. The delivery file has blank UNSPSC and country-of-origin cells, and at least one row where the manufacturer and brand look mismatched. Noticing and reporting such gaps is a strength, not a failure; a confidence score or a ‘needs human review’ flag is a genuinely valuable feature.
+Sourcing rules apply. The guidelines require product data to come from the manufacturer's own site or documentation. Marketplaces and distributor sites are explicitly excluded. If your solution scrapes or retrieves, respect that hierarchy.
+Depth beats breadth. Faucets and Fittings are specified end-to-end. One category done fully - classified, attributed, described and validated — demonstrates more than a thin pass over all 1,000 rows.
+Show your evaluation. Field-level accuracy against the 200 known-good rows, character-limit compliance, and percentage of values found in the LOV are all simple, credible metrics. Judges will look for them.
+5. A suggested starting sequence
+Open Reference_Documents_Summary.xlsx and read the seven-row index end to end.
+Open the 200-item file side by side - Input sheet next to Delivery Format - and trace three items across.
+Skim the content guidelines for the fields you plan to generate, and note the formula and character limit for each.
+Load the LOV, manufacturer/brand and UOM files as lookup tables, and clean the placeholder values.
+Build the smallest end-to-end slice you can: one category, a handful of fields, measured against the ground truth. Then widen it.
+
+=== LINKS ===
+https://support.google.com/docs/answer/183965

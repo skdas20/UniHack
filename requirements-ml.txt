@@ -1,0 +1,5 @@
+# Optional local-model inference (used when a trained model is present in models/).
+# NOT required for the core engine to run.
+torch>=2.3
+transformers>=4.44
+sentence-transformers>=3.0

@@ -1,0 +1,123 @@
+Part 1: The 6-Stage Pipeline Architecture
+Mermaid diagram
+Part 2: Step-by-Step Technical Implementation
+Step 1: Pre-Process Master Reference Data
+Before running items through the pipeline, load your reference files into fast in-memory lookup structures:
+
+Brand & Manufacturer Dictionary (UniCat_Manufacturer_and_Brand_List.xlsx):
+Build a normalized mapping table of raw aliases 
+→
+→ Canonical MANUFACTURER_NAME, BRAND_NAME, and legal codes.
+Tool: RapidFuzz / thefuzz or token trie.
+UOM Master (Unilog_Master_UOM_Standards_Abbreviations_and_Terms.xlsx):
+Build a lookup dictionary mapping common raw units (", in., inches, amps, V.) to canonical forms (in, A, V, pc).
+Decimal-to-Fraction Table (Decimal_Fraction.xlsx):
+Parse the 63 side-by-side decimal/fraction pairs into a dictionary (e.g., 0.5 
+→
+→ 1/2, 0.25 
+→
+→ 1/4, 0.125 
+→
+→ 1/8).
+List of Values / Controlled Vocabularies (Unicat_Lov_v1_0_Updated_With_Remarks.xlsx):
+Index allowed attribute names and normalized values grouped by Classpath / Category.
+Step 2: Data Ingestion & Sanitization
+Filter out placeholders: Strip strings like -- Unbranded --, -- No Unilog Brand --, -- No DIB Brand --, COMMODITY - UNBRANDED, and -.
+Clean raw text: Remove extra whitespace, normalize irregular quotation marks (”, ″ 
+→
+→ "), and clean trailing hyphens.
+Step 3: Brand & Manufacturer Entity Resolution
+When raw catalog rows list distributor cooperatives (e.g. Appliance Dealers Cooperative (APPDE)) or messy spellings (e.g. Black & Decker/dewlt (2585)):
+
+Extract potential brand tokens from Part_Desc and Mfg_Part_Num prefixes (e.g., Milw, Dewalt, Diablo, Frigidaire, Satco).
+Run fuzzy matching against the 27,000+ row master brand/mfg list.
+Replace raw distributor names with canonical legal entities containing ® / ™ (e.g., DEWALT®, FRIGIDAIRE®, Milwaukee®).
+Step 4: Taxonomy Classification & Attribute Extraction
+Classpath Classification:
+Predict category node (e.g., Tools > Power Tools > Saws > Circular Saws).
+Can be achieved using embeddings (e.g., text-embedding-004 or Sentence-Transformers) + cosine similarity against the canonical Classpath list.
+Attribute Extraction with Strict LOV Constraints:
+Extract measurements, voltages, materials, colors, mounting styles, and pack quantities.
+Rule: Do not invent values. Every attribute value must be mapped to the closest canonical value in the LOV.
+UOM & Fraction Formatting:
+Ensure standard spacing: 24 in (never 24in).
+Convert compound inch measurements: 50.25" 
+→
+→ 50-1/4 in.
+Step 5: Multi-Channel Description & Title Synthesizer
+Construct the 5 mandatory output descriptions strictly using Unilog's internal formulas:
+
+Field	Construction Formula / Rule	Constraints & Example
+Product Title / Short Desc	[Brand®] + [Series] + [MPN] + [Item Type] + [Key Specs]	FRIGIDAIRE® Professional Series PDSH4816AF Dishwasher With CleanBoost™, Leg Mounting, 5-Wash Cycle, Stainless Steel
+Invoice Desc	Core keywords, abbreviated, ALL CAPS	
+≤
+40
+≤40 chars limit, e.g.: DISHWASHER LEG 5 SST 120V 15A 50-1/4IN
+Mobile Desc	Fast-glance mobile summary	60–80 chars range, e.g.: Rheem Manufacturing FRIGIDAIRE, Dishwasher, Professional Series, PDSH4816AF
+Long Description	Full feature paragraph or comma-separated spec sequence	Complete, detailed overview with all extracted specs
+Step 6: Confidence Scoring & Audit Engine
+For every processed row, generate an audit record:
+
+Confidence Score (0–100%): Based on brand match confidence, attribute extraction coverage, and LOV validity rate.
+Review Flags: If Invoice Desc 
+>
+40
+>40 chars, or Brand is ambiguous, set Needs_Human_Review = TRUE with specific reasons (e.g., ["Missing Voltage", "Brand match confidence 65%"]).
+Part 3: How to Score & Benchmark Your Pipeline
+Use Unilog-Sample_200_Items-Input-vs-Output.xlsx (Delivery Format sheet) as your ground-truth test suite:
+
+Overall Accuracy
+=
+1
+N
+∑
+(
+Brand Match
++
+LOV Validity Rate
++
+Char Limit Pass Rate
++
+UOM Accuracy
+)
+Overall Accuracy= 
+N
+1
+​
+ ∑(Brand Match+LOV Validity Rate+Char Limit Pass Rate+UOM Accuracy)
+Brand Resolution Match Rate: Does predicted brand match delivery format brand exact spelling?
+LOV Compliance Rate: Are 100% of generated attribute values present in the approved LOV?
+Character Limit Adherence: Did 100% of Invoice Descriptions stay 
+≤
+40
+≤40 characters?
+UOM Formatting Score: Are all units properly spaced and abbreviated per house rules?
+Part 4: Step-by-Step Hackathon Execution Plan
+⏱️ Phase 1: Setup & Ground Truth Baseline (First 2–3 Hours)
+ Load Unilog-Sample_200_Items-Input-vs-Output.xlsx into Python (pandas).
+ Write a simple evaluation script that compares any pipeline output against the 200 ground truth rows.
+ Load the reference sheets (Brand List, UOM, Decimal_Fraction, LOVs) into Python dictionaries.
+⏱️ Phase 2: Core Pipeline Development (Next 4–6 Hours)
+ Brand Normalizer: Implement placeholder stripping + fuzzy matching against master brands.
+ UOM & Fraction Formatter: Implement regex-based fraction conversion and unit normalization.
+ Title & Description Builder: Implement deterministic string construction with strict length guards for Invoice (
+≤
+40
+≤40) and Mobile (
+60
+–
+80
+60–80).
+ Attribute Extractor: Implement regex / Gemini-powered extraction constrained by LOV dictionaries.
+⏱️ Phase 3: Benchmark & Deepen Category Quality (Next 3–4 Hours)
+ Run the pipeline against the 200 ground truth items and record baseline accuracy.
+ Focus deeply on 2–3 major categories (e.g., Power Tools / Saws, Abrasives, Appliances / Dishwashers, Faucets & Fittings).
+ Refine edge cases until accuracy on ground truth hits 85%+.
+⏱️ Phase 4: Scaling & Demo UI (Final 2–3 Hours)
+ Run the finalized pipeline on Sample-1000_Items.xlsx to generate the enriched catalog file.
+ Build a lightweight demo interface (Streamlit, Gradio, or a web dashboard) showing:
+Before & After View: Raw row on the left 
+→
+→ Search-ready enriched product card on the right.
+Automated Audit Badge: LOV compliance %, character limit checks, confidence score.
+Batch Evaluation Metrics: Live benchmark report against the 200 ground truth items.

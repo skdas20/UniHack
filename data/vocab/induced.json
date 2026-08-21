@@ -1,0 +1,5534 @@
+{
+  "n_rows": 1000,
+  "brands": {
+    "Diablo": {
+      "canonical": "Diablo",
+      "aliases": [
+        "Diablo"
+      ],
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "support": 44,
+      "linkage": "group-brand-column(30 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Milwaukee": {
+      "canonical": "Milwaukee",
+      "aliases": [
+        "Milw"
+      ],
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "support": 117,
+      "linkage": "group-brand-column(9 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Emseal Joint": {
+      "canonical": "Emseal Joint",
+      "aliases": [
+        "Emseal"
+      ],
+      "groups": [
+        "Emseal Joint Systems Ltd (EMSJO)"
+      ],
+      "support": 1,
+      "linkage": "fuzzy:account-name-head(100)",
+      "confidence": 1.0,
+      "attested": true,
+      "mean_position": 0.3333333333333333,
+      "rejection": ""
+    },
+    "TREX": {
+      "canonical": "TREX",
+      "aliases": [
+        "Trex"
+      ],
+      "groups": [
+        "U S Lumber (3073)",
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "support": 230,
+      "linkage": "group-brand-column(39 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.3937389770723103,
+      "rejection": ""
+    },
+    "AZEK": {
+      "canonical": "AZEK",
+      "aliases": [
+        "Azek"
+      ],
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "support": 55,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.6169696969696974,
+      "rejection": ""
+    },
+    "DSI Westbury": {
+      "canonical": "DSI Westbury",
+      "aliases": [
+        "DSI"
+      ],
+      "groups": [
+        "Palmer Donavin Mfg Company (PALDO)"
+      ],
+      "support": 5,
+      "linkage": "group-brand-column(2 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "United Window & Door": {
+      "canonical": "United Window & Door",
+      "aliases": [
+        "United"
+      ],
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "support": 9,
+      "linkage": "group-brand-column(4 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.36,
+      "rejection": ""
+    },
+    "Velux": {
+      "canonical": "Velux",
+      "aliases": [
+        "Velux"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Premier": {
+      "canonical": "Premier",
+      "aliases": [
+        "Premier"
+      ],
+      "groups": [
+        "Premier Metals (PREME)"
+      ],
+      "support": 8,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "StealthMounts": {
+      "canonical": "StealthMounts",
+      "aliases": [
+        "Mounts"
+      ],
+      "groups": [
+        "Metalmark Industrial Inc (METIN)"
+      ],
+      "support": 2,
+      "linkage": "group-brand-column(1 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.6666666666666666,
+      "rejection": ""
+    },
+    "DEWALT": {
+      "canonical": "DEWALT",
+      "aliases": [
+        "Dewalt"
+      ],
+      "groups": [
+        "Metalmark Industrial Inc (METIN)",
+        "Black & Decker/dewlt (2585)",
+        "Radians (7363)"
+      ],
+      "support": 82,
+      "linkage": "exact:dib-brand-column",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Lutron": {
+      "canonical": "Lutron",
+      "aliases": [
+        "Lutron"
+      ],
+      "groups": [
+        "Fenton Bros Electric Inc (FENBR)"
+      ],
+      "support": 2,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Kichler": {
+      "canonical": "Kichler",
+      "aliases": [
+        "Kichler"
+      ],
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "support": 56,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.005847953216374269,
+      "rejection": ""
+    },
+    "Feit Electric": {
+      "canonical": "Feit Electric",
+      "aliases": [
+        "Feit"
+      ],
+      "groups": [
+        "Feit Electric (3468)"
+      ],
+      "support": 3,
+      "linkage": "group-brand-column(2 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "King Canada": {
+      "canonical": "King Canada",
+      "aliases": [
+        "King"
+      ],
+      "groups": [
+        "ACG Brands (1154)"
+      ],
+      "support": 1,
+      "linkage": "fuzzy:account-name-head(100)",
+      "confidence": 1.0,
+      "attested": true,
+      "mean_position": 0.5,
+      "rejection": ""
+    },
+    "Police Security": {
+      "canonical": "Police Security",
+      "aliases": [
+        "Police"
+      ],
+      "groups": [
+        "Police Security (9470)"
+      ],
+      "support": 2,
+      "linkage": "group-brand-column(1 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Senco": {
+      "canonical": "Senco",
+      "aliases": [
+        "Senco"
+      ],
+      "groups": [
+        "Senco Products Inc (4650)"
+      ],
+      "support": 2,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Prebena": {
+      "canonical": "Prebena",
+      "aliases": [
+        "Prebena"
+      ],
+      "groups": [
+        "Prebena (PREBE)"
+      ],
+      "support": 2,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Hunter": {
+      "canonical": "Hunter",
+      "aliases": [
+        "Hunter"
+      ],
+      "groups": [
+        "Hunter Fan Co (4381)"
+      ],
+      "support": 4,
+      "linkage": "group-brand-column(1 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.3333333333333333,
+      "rejection": ""
+    },
+    "Makita": {
+      "canonical": "Makita",
+      "aliases": [
+        "Makita"
+      ],
+      "groups": [
+        "Makita Usa Inc (5142)"
+      ],
+      "support": 20,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Dremel": {
+      "canonical": "Dremel",
+      "aliases": [
+        "DREMEL"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 4,
+      "linkage": "group-brand-column(2 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Amana": {
+      "canonical": "Amana",
+      "aliases": [
+        "Amana"
+      ],
+      "groups": [
+        "Amana Tool Corp (AMATO)"
+      ],
+      "support": 1,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Vessel": {
+      "canonical": "Vessel",
+      "aliases": [
+        "Vessel"
+      ],
+      "groups": [
+        "Vessel Tools USA Inc (VESTO)"
+      ],
+      "support": 6,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Irwin": {
+      "canonical": "Irwin",
+      "aliases": [
+        "Irwin"
+      ],
+      "groups": [
+        "Irwin Industrial Tools (5863)"
+      ],
+      "support": 2,
+      "linkage": "group-brand-column(1 rows)",
+      "confidence": 0.97,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Kreg": {
+      "canonical": "Kreg",
+      "aliases": [
+        "Kreg"
+      ],
+      "groups": [
+        "Kreg Tool Company (KRETO)"
+      ],
+      "support": 11,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Festool": {
+      "canonical": "Festool",
+      "aliases": [
+        "Festool"
+      ],
+      "groups": [
+        "Festool USA (FESTO)"
+      ],
+      "support": 16,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "CMT": {
+      "canonical": "CMT",
+      "aliases": [
+        "CMT"
+      ],
+      "groups": [
+        "CMT USA Inc (CMTUS)"
+      ],
+      "support": 2,
+      "linkage": "exact:account-name-head",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "JET": {
+      "canonical": "JET",
+      "aliases": [
+        "Jet"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 1,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.5,
+      "rejection": ""
+    },
+    "Grizzly": {
+      "canonical": "Grizzly",
+      "aliases": [
+        "Grizzly"
+      ],
+      "groups": [
+        "Woodstock Intl (3658)"
+      ],
+      "support": 2,
+      "linkage": "exact:known-shorthand",
+      "confidence": 0.95,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "3M": {
+      "canonical": "3M",
+      "aliases": [
+        "3M"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Schumacher": {
+      "canonical": "Schumacher",
+      "aliases": [
+        "Schumacher"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Southwire": {
+      "canonical": "Southwire",
+      "aliases": [
+        "Southwire"
+      ],
+      "groups": [],
+      "support": 14,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Carlon": {
+      "canonical": "Carlon",
+      "aliases": [
+        "Carlon"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Leviton": {
+      "canonical": "Leviton",
+      "aliases": [
+        "Leviton"
+      ],
+      "groups": [],
+      "support": 16,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Prime": {
+      "canonical": "Prime",
+      "aliases": [
+        "Prime"
+      ],
+      "groups": [],
+      "support": 5,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Satco": {
+      "canonical": "Satco",
+      "aliases": [
+        "Satco"
+      ],
+      "groups": [],
+      "support": 15,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Wiz": {
+      "canonical": "Wiz",
+      "aliases": [
+        "Wiz"
+      ],
+      "groups": [],
+      "support": 2,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Philips": {
+      "canonical": "Philips",
+      "aliases": [
+        "Philips"
+      ],
+      "groups": [],
+      "support": 109,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "GT-Lite": {
+      "canonical": "GT-Lite",
+      "aliases": [
+        "GT-Lite"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Square D": {
+      "canonical": "Square D",
+      "aliases": [
+        "Square D"
+      ],
+      "groups": [],
+      "support": 2,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "First Alert": {
+      "canonical": "First Alert",
+      "aliases": [
+        "First Alert"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "BRK": {
+      "canonical": "BRK",
+      "aliases": [
+        "BRK"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "Nicholson": {
+      "canonical": "Nicholson",
+      "aliases": [
+        "Nicholson"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "TIMBERTECH": {
+      "canonical": "TIMBERTECH",
+      "aliases": [
+        "TIMBERTECH"
+      ],
+      "groups": [],
+      "support": 55,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "AJM": {
+      "canonical": "AJM",
+      "aliases": [
+        "AJM"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "PROVIA": {
+      "canonical": "PROVIA",
+      "aliases": [
+        "PROVIA"
+      ],
+      "groups": [],
+      "support": 2,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "HAGER": {
+      "canonical": "HAGER",
+      "aliases": [
+        "HAGER"
+      ],
+      "groups": [],
+      "support": 2,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "JAMESHARDIE": {
+      "canonical": "JAMESHARDIE",
+      "aliases": [
+        "JAMESHARDIE"
+      ],
+      "groups": [],
+      "support": 2,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "LP SMARTSIDE": {
+      "canonical": "LP SMARTSIDE",
+      "aliases": [
+        "LP SMARTSIDE"
+      ],
+      "groups": [],
+      "support": 4,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "ANDERSEN": {
+      "canonical": "ANDERSEN",
+      "aliases": [
+        "ANDERSEN"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    },
+    "CENTURY COMPONENTS": {
+      "canonical": "CENTURY COMPONENTS",
+      "aliases": [
+        "CENTURY COMPONENTS"
+      ],
+      "groups": [],
+      "support": 1,
+      "linkage": "attested-column",
+      "confidence": 0.99,
+      "attested": true,
+      "mean_position": 0.0,
+      "rejection": ""
+    }
+  },
+  "brand_candidates": {
+    "Drive": {
+      "canonical": "Drive",
+      "aliases": [
+        "Drive"
+      ],
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "support": 25,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.48809523809523814,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.49 (tail-weighted)"
+    },
+    "Stikit": {
+      "canonical": "Stikit",
+      "aliases": [
+        "Stikit"
+      ],
+      "groups": [
+        "Jam Industrial Supply LLC (JAMIN)"
+      ],
+      "support": 6,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Film": {
+      "canonical": "Film",
+      "aliases": [
+        "Film"
+      ],
+      "groups": [
+        "Jam Industrial Supply LLC (JAMIN)"
+      ],
+      "support": 6,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "Disc": {
+      "canonical": "Disc",
+      "aliases": [
+        "Disc"
+      ],
+      "groups": [
+        "Jam Industrial Supply LLC (JAMIN)",
+        "Milwaukee Accessory (4031)"
+      ],
+      "support": 40,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7999470899470897,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.80 (tail-weighted)"
+    },
+    "Cubitron": {
+      "canonical": "Cubitron",
+      "aliases": [
+        "Cubitron"
+      ],
+      "groups": [
+        "Jam Industrial Supply LLC (JAMIN)"
+      ],
+      "support": 6,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Abranet": {
+      "canonical": "Abranet",
+      "aliases": [
+        "Abranet"
+      ],
+      "groups": [
+        "Mirka Abrasives Inc (MIRUS)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Off": {
+      "canonical": "Off",
+      "aliases": [
+        "Off"
+      ],
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "support": 30,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6196825396825396,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.62 (tail-weighted)"
+    },
+    "Metal": {
+      "canonical": "Metal",
+      "aliases": [
+        "Metal"
+      ],
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "support": 32,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.30144110275689223,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.30 (head-weighted)"
+    },
+    "Cut": {
+      "canonical": "Cut",
+      "aliases": [
+        "Cut"
+      ],
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "support": 34,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.45252100840336135,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.45 (tail-weighted)"
+    },
+    "Vinyl": {
+      "canonical": "Vinyl",
+      "aliases": [
+        "Vinyl"
+      ],
+      "groups": [
+        "3 M Co (5293)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Legacy": {
+      "canonical": "Legacy",
+      "aliases": [
+        "Legacy"
+      ],
+      "groups": [
+        "Emseal Joint Systems Ltd (EMSJO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Heater": {
+      "canonical": "Heater",
+      "aliases": [
+        "Heater"
+      ],
+      "groups": [
+        "V & V Appliance Parts Inc (VVAPP)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Bttl": {
+      "canonical": "Bttl",
+      "aliases": [
+        "Bttl"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Opener": {
+      "canonical": "Opener",
+      "aliases": [
+        "Opener"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "Pad": {
+      "canonical": "Pad",
+      "aliases": [
+        "Pad"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "Kneeling": {
+      "canonical": "Kneeling",
+      "aliases": [
+        "Kneeling"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Hex": {
+      "canonical": "Hex",
+      "aliases": [
+        "Hex"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.2,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.20 (head-weighted)"
+    },
+    "Plus": {
+      "canonical": "Plus",
+      "aliases": [
+        "Plus"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4583333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.46 (tail-weighted)"
+    },
+    "Spks": {
+      "canonical": "Spks",
+      "aliases": [
+        "Spks"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Multicolor": {
+      "canonical": "Multicolor",
+      "aliases": [
+        "Multicolor"
+      ],
+      "groups": [
+        "Wera Tools NA Inc (WERTO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "Finyline": {
+      "canonical": "Finyline",
+      "aliases": [
+        "Finyline"
+      ],
+      "groups": [
+        "<ungrouped>"
+      ],
+      "support": 12,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.041666666666666664,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.04 (head-weighted)"
+    },
+    "RDI": {
+      "canonical": "RDI",
+      "aliases": [
+        "RDI"
+      ],
+      "groups": [
+        "<ungrouped>"
+      ],
+      "support": 11,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7318181818181819,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.73 (tail-weighted)"
+    },
+    "Mortar": {
+      "canonical": "Mortar",
+      "aliases": [
+        "Mortar"
+      ],
+      "groups": [
+        "Rees Cast Stone Company (REECA)"
+      ],
+      "support": 4,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6249999999999999,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.62 (tail-weighted)"
+    },
+    "Charcoal": {
+      "canonical": "Charcoal",
+      "aliases": [
+        "Charcoal"
+      ],
+      "groups": [
+        "Rees Cast Stone Company (REECA)",
+        "Premier Metals (PREME)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Chocolate": {
+      "canonical": "Chocolate",
+      "aliases": [
+        "Chocolate"
+      ],
+      "groups": [
+        "Rees Cast Stone Company (REECA)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Dark": {
+      "canonical": "Dark",
+      "aliases": [
+        "Dark"
+      ],
+      "groups": [
+        "Rees Cast Stone Company (REECA)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Buff": {
+      "canonical": "Buff",
+      "aliases": [
+        "Buff"
+      ],
+      "groups": [
+        "Rees Cast Stone Company (REECA)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Transcend": {
+      "canonical": "Transcend",
+      "aliases": [
+        "Transcend"
+      ],
+      "groups": [
+        "U S Lumber (3073)"
+      ],
+      "support": 25,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5204081632653063,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.52 (tail-weighted)"
+    },
+    "Lineage": {
+      "canonical": "Lineage",
+      "aliases": [
+        "Lineage"
+      ],
+      "groups": [
+        "U S Lumber (3073)"
+      ],
+      "support": 35,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6831875607385814,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.68 (tail-weighted)"
+    },
+    "Decking": {
+      "canonical": "Decking",
+      "aliases": [
+        "Decking"
+      ],
+      "groups": [
+        "U S Lumber (3073)",
+        "Boise Cascade Building Materials (BOICA)",
+        "Parksite (6151)"
+      ],
+      "support": 120,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.8317857142857127,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.83 (tail-weighted)"
+    },
+    "Grooved": {
+      "canonical": "Grooved",
+      "aliases": [
+        "Grooved"
+      ],
+      "groups": [
+        "U S Lumber (3073)",
+        "Boise Cascade Building Materials (BOICA)",
+        "Parksite (6151)"
+      ],
+      "support": 66,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.24458874458874452,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.24 (head-weighted)"
+    },
+    "Select": {
+      "canonical": "Select",
+      "aliases": [
+        "Select"
+      ],
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "support": 31,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.39238095238095233,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.39 (head-weighted)"
+    },
+    "Enhance": {
+      "canonical": "Enhance",
+      "aliases": [
+        "Enhance"
+      ],
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "support": 35,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5351020408163263,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.54 (tail-weighted)"
+    },
+    "Vintage": {
+      "canonical": "Vintage",
+      "aliases": [
+        "Vintage"
+      ],
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "support": 23,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4304347826086957,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.43 (tail-weighted)"
+    },
+    "Landmark": {
+      "canonical": "Landmark",
+      "aliases": [
+        "Landmark"
+      ],
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "support": 18,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4722222222222222,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.47 (tail-weighted)"
+    },
+    "Harvest": {
+      "canonical": "Harvest",
+      "aliases": [
+        "Harvest"
+      ],
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "support": 14,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.35714285714285715,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.36 (head-weighted)"
+    },
+    "Wrap": {
+      "canonical": "Wrap",
+      "aliases": [
+        "Wrap"
+      ],
+      "groups": [
+        "Palmer Donavin Mfg Company (PALDO)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4714285714285714,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.47 (tail-weighted)"
+    },
+    "Door": {
+      "canonical": "Door",
+      "aliases": [
+        "Door"
+      ],
+      "groups": [
+        "A J Manufacturing Inc (AJMAN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Attic": {
+      "canonical": "Attic",
+      "aliases": [
+        "Attic"
+      ],
+      "groups": [
+        "A J Manufacturing Inc (AJMAN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Access": {
+      "canonical": "Access",
+      "aliases": [
+        "Access"
+      ],
+      "groups": [
+        "A J Manufacturing Inc (AJMAN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "LowE": {
+      "canonical": "LowE",
+      "aliases": [
+        "LowE"
+      ],
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.60 (tail-weighted)"
+    },
+    "Gliding": {
+      "canonical": "Gliding",
+      "aliases": [
+        "Gliding"
+      ],
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "support": 4,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Arg": {
+      "canonical": "Arg",
+      "aliases": [
+        "Arg"
+      ],
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.8,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.80 (tail-weighted)"
+    },
+    "Patio": {
+      "canonical": "Patio",
+      "aliases": [
+        "Patio"
+      ],
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "support": 4,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.2,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.20 (head-weighted)"
+    },
+    "Fxd": {
+      "canonical": "Fxd",
+      "aliases": [
+        "Fxd"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.16666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.17 (head-weighted)"
+    },
+    "Shade": {
+      "canonical": "Shade",
+      "aliases": [
+        "Shade"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.8333333333333334,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.83 (tail-weighted)"
+    },
+    "Skylt": {
+      "canonical": "Skylt",
+      "aliases": [
+        "Skylt"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Gry": {
+      "canonical": "Gry",
+      "aliases": [
+        "Gry"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Solar": {
+      "canonical": "Solar",
+      "aliases": [
+        "Solar"
+      ],
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.67 (tail-weighted)"
+    },
+    "Screen": {
+      "canonical": "Screen",
+      "aliases": [
+        "Screen"
+      ],
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.8,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.80 (tail-weighted)"
+    },
+    "EcoLitePlus": {
+      "canonical": "EcoLitePlus",
+      "aliases": [
+        "ecoLitePlus"
+      ],
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.2,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.20 (head-weighted)"
+    },
+    "DLA": {
+      "canonical": "DLA",
+      "aliases": [
+        "DLA"
+      ],
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.60 (tail-weighted)"
+    },
+    "Hopper": {
+      "canonical": "Hopper",
+      "aliases": [
+        "Hopper"
+      ],
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.40 (tail-weighted)"
+    },
+    "Bsmt": {
+      "canonical": "Bsmt",
+      "aliases": [
+        "Bsmt"
+      ],
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Easi-Lite": {
+      "canonical": "Easi-Lite",
+      "aliases": [
+        "Easi-Lite"
+      ],
+      "groups": [
+        "Certainteed Gypsum (2765)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Drywall": {
+      "canonical": "Drywall",
+      "aliases": [
+        "Drywall"
+      ],
+      "groups": [
+        "Certainteed Gypsum (2765)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0625,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.06 (head-weighted)"
+    },
+    "Firelite": {
+      "canonical": "Firelite",
+      "aliases": [
+        "Firelite"
+      ],
+      "groups": [
+        "Certainteed Gypsum (2765)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "DBZ": {
+      "canonical": "DBZ",
+      "aliases": [
+        "DBZ"
+      ],
+      "groups": [
+        "Hager Hinge Co (4189)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Threshold": {
+      "canonical": "Threshold",
+      "aliases": [
+        "Threshold"
+      ],
+      "groups": [
+        "Hager Hinge Co (4189)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Zip": {
+      "canonical": "Zip",
+      "aliases": [
+        "Zip"
+      ],
+      "groups": [
+        "Huber Eng Wood LLC (3158)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.1875,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.19 (head-weighted)"
+    },
+    "Rainscreen": {
+      "canonical": "Rainscreen",
+      "aliases": [
+        "Rainscreen"
+      ],
+      "groups": [
+        "Huber Eng Wood LLC (3158)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Smooth": {
+      "canonical": "Smooth",
+      "aliases": [
+        "Smooth"
+      ],
+      "groups": [
+        "Westwood Lumber Sales (WESLU)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6222222222222222,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.62 (tail-weighted)"
+    },
+    "Doug": {
+      "canonical": "Doug",
+      "aliases": [
+        "Doug"
+      ],
+      "groups": [
+        "Westwood Lumber Sales (WESLU)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Fir": {
+      "canonical": "Fir",
+      "aliases": [
+        "Fir"
+      ],
+      "groups": [
+        "Westwood Lumber Sales (WESLU)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.25 (head-weighted)"
+    },
+    "STK": {
+      "canonical": "STK",
+      "aliases": [
+        "STK"
+      ],
+      "groups": [
+        "Westwood Lumber Sales (WESLU)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Rib": {
+      "canonical": "Rib",
+      "aliases": [
+        "Rib"
+      ],
+      "groups": [
+        "Premier Metals (PREME)"
+      ],
+      "support": 8,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4375,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.44 (tail-weighted)"
+    },
+    "Cover": {
+      "canonical": "Cover",
+      "aliases": [
+        "Cover"
+      ],
+      "groups": [
+        "Southwire/g Turner (6603)",
+        "Thomas & Betts (7405)"
+      ],
+      "support": 8,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.20833333333333331,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.21 (head-weighted)"
+    },
+    "Plate": {
+      "canonical": "Plate",
+      "aliases": [
+        "Plate"
+      ],
+      "groups": [
+        "Cooper Wiring Devices (3560)",
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5833333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.58 (tail-weighted)"
+    },
+    "Port": {
+      "canonical": "Port",
+      "aliases": [
+        "Port"
+      ],
+      "groups": [
+        "Cooper Wiring Devices (3560)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Decor": {
+      "canonical": "Decor",
+      "aliases": [
+        "Decor"
+      ],
+      "groups": [
+        "Cooper Wiring Devices (3560)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Dimmer": {
+      "canonical": "Dimmer",
+      "aliases": [
+        "Dimmer"
+      ],
+      "groups": [
+        "Fenton Bros Electric Inc (FENBR)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5555555555555555,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.56 (tail-weighted)"
+    },
+    "Grip": {
+      "canonical": "Grip",
+      "aliases": [
+        "Grip"
+      ],
+      "groups": [
+        "Fenton Bros Electric Inc (FENBR)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4777777777777777,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.48 (tail-weighted)"
+    },
+    "Outlet": {
+      "canonical": "Outlet",
+      "aliases": [
+        "Outlet"
+      ],
+      "groups": [
+        "Leviton Mfg Co (4927)"
+      ],
+      "support": 7,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3125,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.31 (head-weighted)"
+    },
+    "Timer": {
+      "canonical": "Timer",
+      "aliases": [
+        "Timer"
+      ],
+      "groups": [
+        "Prime Wire & Cable (3562)"
+      ],
+      "support": 4,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5416666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.54 (tail-weighted)"
+    },
+    "Pendant": {
+      "canonical": "Pendant",
+      "aliases": [
+        "Pendant"
+      ],
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "support": 15,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.47777777777777775,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.48 (tail-weighted)"
+    },
+    "Down": {
+      "canonical": "Down",
+      "aliases": [
+        "Down"
+      ],
+      "groups": [
+        "Cooper Lighting (7638)",
+        "Lithonia Lighting (2776)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.08333333333333333,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.08 (head-weighted)"
+    },
+    "Med": {
+      "canonical": "Med",
+      "aliases": [
+        "Med"
+      ],
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "support": 75,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.04878048780487805,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.05 (head-weighted)"
+    },
+    "Head": {
+      "canonical": "Head",
+      "aliases": [
+        "Head"
+      ],
+      "groups": [
+        "Feit Electric (3468)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.41666666666666663,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.42 (tail-weighted)"
+    },
+    "Twin": {
+      "canonical": "Twin",
+      "aliases": [
+        "Twin"
+      ],
+      "groups": [
+        "Feit Electric (3468)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Cob": {
+      "canonical": "Cob",
+      "aliases": [
+        "Cob"
+      ],
+      "groups": [
+        "Keystone (5702)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "GTCB": {
+      "canonical": "GTCB",
+      "aliases": [
+        "GTCB"
+      ],
+      "groups": [
+        "Keystone (5702)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Clip": {
+      "canonical": "Clip",
+      "aliases": [
+        "Clip"
+      ],
+      "groups": [
+        "Streamlight (7277)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Nano": {
+      "canonical": "Nano",
+      "aliases": [
+        "Nano"
+      ],
+      "groups": [
+        "Streamlight (7277)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Slyde": {
+      "canonical": "Slyde",
+      "aliases": [
+        "Slyde"
+      ],
+      "groups": [
+        "ACG Brands (1154)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "FlashLt": {
+      "canonical": "FlashLt",
+      "aliases": [
+        "FlashLt"
+      ],
+      "groups": [
+        "ACG Brands (1154)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "NEBFLT": {
+      "canonical": "NEBFLT",
+      "aliases": [
+        "NEBFLT"
+      ],
+      "groups": [
+        "ACG Brands (1154)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Flash": {
+      "canonical": "Flash",
+      "aliases": [
+        "Flash"
+      ],
+      "groups": [
+        "ACG Brands (1154)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Headlight": {
+      "canonical": "Headlight",
+      "aliases": [
+        "Headlight"
+      ],
+      "groups": [
+        "Police Security (9470)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Load": {
+      "canonical": "Load",
+      "aliases": [
+        "Load"
+      ],
+      "groups": [
+        "Square D Con Prod Dv (6825)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Cntr": {
+      "canonical": "Cntr",
+      "aliases": [
+        "Cntr"
+      ],
+      "groups": [
+        "Square D Con Prod Dv (6825)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Center": {
+      "canonical": "Center",
+      "aliases": [
+        "Center"
+      ],
+      "groups": [
+        "Square D Con Prod Dv (6825)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5277777777777778,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.53 (tail-weighted)"
+    },
+    "Wire": {
+      "canonical": "Wire",
+      "aliases": [
+        "Wire"
+      ],
+      "groups": [
+        "Woods Wire Southwire (7579)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.47 (tail-weighted)"
+    },
+    "CAT": {
+      "canonical": "CAT",
+      "aliases": [
+        "CAT"
+      ],
+      "groups": [
+        "Woods Wire Southwire (7579)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Lithium": {
+      "canonical": "Lithium",
+      "aliases": [
+        "Lithium"
+      ],
+      "groups": [
+        "Senco Products Inc (4650)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Finish": {
+      "canonical": "Finish",
+      "aliases": [
+        "Finish"
+      ],
+      "groups": [
+        "National Nail Corp (7439)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.35,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.35 (head-weighted)"
+    },
+    "Nail": {
+      "canonical": "Nail",
+      "aliases": [
+        "Nail"
+      ],
+      "groups": [
+        "National Nail Corp (7439)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Paslode": {
+      "canonical": "Paslode",
+      "aliases": [
+        "Paslode"
+      ],
+      "groups": [
+        "National Nail Corp (7439)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Brad": {
+      "canonical": "Brad",
+      "aliases": [
+        "Brad"
+      ],
+      "groups": [
+        "National Nail Corp (7439)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3277777777777778,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Staple": {
+      "canonical": "Staple",
+      "aliases": [
+        "Staple"
+      ],
+      "groups": [
+        "Prebena (PREBE)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Fan": {
+      "canonical": "Fan",
+      "aliases": [
+        "Fan"
+      ],
+      "groups": [
+        "Hunter Fan Co (4381)"
+      ],
+      "support": 9,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5555555555555556,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.56 (tail-weighted)"
+    },
+    "Anisten": {
+      "canonical": "Anisten",
+      "aliases": [
+        "Anisten"
+      ],
+      "groups": [
+        "Hunter Fan Co (4381)"
+      ],
+      "support": 4,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Driveway": {
+      "canonical": "Driveway",
+      "aliases": [
+        "Driveway"
+      ],
+      "groups": [
+        "Sabre (9195)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Alert": {
+      "canonical": "Alert",
+      "aliases": [
+        "Alert"
+      ],
+      "groups": [
+        "Sabre (9195)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "TS-": {
+      "canonical": "TS-",
+      "aliases": [
+        "TS-"
+      ],
+      "groups": [
+        "Marshalltown Trowel (5155)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Wal-Board": {
+      "canonical": "Wal-Board",
+      "aliases": [
+        "Wal-Board"
+      ],
+      "groups": [
+        "Marshalltown Trowel (5155)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "T-Square": {
+      "canonical": "T-Square",
+      "aliases": [
+        "T-Square"
+      ],
+      "groups": [
+        "Marshalltown Trowel (5155)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Safety": {
+      "canonical": "Safety",
+      "aliases": [
+        "Safety"
+      ],
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "support": 10,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.18761904761904763,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.19 (head-weighted)"
+    },
+    "Frame": {
+      "canonical": "Frame",
+      "aliases": [
+        "Frame"
+      ],
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "support": 9,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7227513227513227,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.72 (tail-weighted)"
+    },
+    "Polarized": {
+      "canonical": "Polarized",
+      "aliases": [
+        "Polarized"
+      ],
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "support": 3,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.8222222222222223,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.82 (tail-weighted)"
+    },
+    "Glasses": {
+      "canonical": "Glasses",
+      "aliases": [
+        "Glasses"
+      ],
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "support": 9,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3724867724867725,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.37 (head-weighted)"
+    },
+    "Lith": {
+      "canonical": "Lith",
+      "aliases": [
+        "Lith"
+      ],
+      "groups": [
+        "Ohio Firewatch Protection Inc (HOLFS)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.25 (head-weighted)"
+    },
+    "FEEFX": {
+      "canonical": "FEEFX",
+      "aliases": [
+        "FEEFX"
+      ],
+      "groups": [
+        "Ohio Firewatch Protection Inc (HOLFS)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Extinguisher": {
+      "canonical": "Extinguisher",
+      "aliases": [
+        "Extinguisher"
+      ],
+      "groups": [
+        "Ohio Firewatch Protection Inc (HOLFS)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.75 (tail-weighted)"
+    },
+    "Fire": {
+      "canonical": "Fire",
+      "aliases": [
+        "Fire"
+      ],
+      "groups": [
+        "Ohio Firewatch Protection Inc (HOLFS)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Smoke": {
+      "canonical": "Smoke",
+      "aliases": [
+        "Smoke"
+      ],
+      "groups": [
+        "First Alert - B R K Brands (2754)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Alarm": {
+      "canonical": "Alarm",
+      "aliases": [
+        "Alarm"
+      ],
+      "groups": [
+        "First Alert - B R K Brands (2754)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Glove": {
+      "canonical": "Glove",
+      "aliases": [
+        "Glove"
+      ],
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "support": 11,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7100000000000001,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.71 (tail-weighted)"
+    },
+    "Heated": {
+      "canonical": "Heated",
+      "aliases": [
+        "Heated"
+      ],
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "support": 11,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3958333333333333,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.40 (head-weighted)"
+    },
+    "UTW": {
+      "canonical": "UTW",
+      "aliases": [
+        "UTW"
+      ],
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "support": 6,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Snow": {
+      "canonical": "Snow",
+      "aliases": [
+        "Snow"
+      ],
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.25 (head-weighted)"
+    },
+    "Aerial": {
+      "canonical": "Aerial",
+      "aliases": [
+        "Aerial"
+      ],
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Hearing": {
+      "canonical": "Hearing",
+      "aliases": [
+        "Hearing"
+      ],
+      "groups": [
+        "Radians (7363)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Protector": {
+      "canonical": "Protector",
+      "aliases": [
+        "Protector"
+      ],
+      "groups": [
+        "Radians (7363)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "BigCal": {
+      "canonical": "BigCal",
+      "aliases": [
+        "BigCal"
+      ],
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Align-A-Saw": {
+      "canonical": "Align-A-Saw",
+      "aliases": [
+        "Align-A-Saw"
+      ],
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Miter": {
+      "canonical": "Miter",
+      "aliases": [
+        "Miter"
+      ],
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.22857142857142856,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.23 (head-weighted)"
+    },
+    "Sled": {
+      "canonical": "Sled",
+      "aliases": [
+        "Sled"
+      ],
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Stealthstop": {
+      "canonical": "Stealthstop",
+      "aliases": [
+        "Stealthstop"
+      ],
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Cross": {
+      "canonical": "Cross",
+      "aliases": [
+        "Cross"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.35333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.35 (head-weighted)"
+    },
+    "Laser": {
+      "canonical": "Laser",
+      "aliases": [
+        "Laser"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.2928571428571428,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.29 (head-weighted)"
+    },
+    "Line": {
+      "canonical": "Line",
+      "aliases": [
+        "Line"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)",
+        "U S Tape Company (6694)"
+      ],
+      "support": 11,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3500000000000001,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.35 (head-weighted)"
+    },
+    "Zero": {
+      "canonical": "Zero",
+      "aliases": [
+        "Zero"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Table": {
+      "canonical": "Table",
+      "aliases": [
+        "Table"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)",
+        "Woodstock Intl (3658)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.1111111111111111,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.11 (head-weighted)"
+    },
+    "Insert": {
+      "canonical": "Insert",
+      "aliases": [
+        "Insert"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "ROTARY": {
+      "canonical": "ROTARY",
+      "aliases": [
+        "ROTARY"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Rotary": {
+      "canonical": "Rotary",
+      "aliases": [
+        "Rotary"
+      ],
+      "groups": [
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Orange": {
+      "canonical": "Orange",
+      "aliases": [
+        "Orange"
+      ],
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7000000000000001,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.70 (tail-weighted)"
+    },
+    "Brd": {
+      "canonical": "Brd",
+      "aliases": [
+        "Brd"
+      ],
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "support": 8,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.46249999999999997,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.46 (tail-weighted)"
+    },
+    "Mason": {
+      "canonical": "Mason",
+      "aliases": [
+        "Mason"
+      ],
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "support": 10,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Replacement": {
+      "canonical": "Replacement",
+      "aliases": [
+        "Replacement"
+      ],
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7111111111111111,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.71 (tail-weighted)"
+    },
+    "Green": {
+      "canonical": "Green",
+      "aliases": [
+        "Green"
+      ],
+      "groups": [
+        "U S Tape Company (6694)",
+        "Malco Prod (2370)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5937500000000001,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.59 (tail-weighted)"
+    },
+    "Stop": {
+      "canonical": "Stop",
+      "aliases": [
+        "Stop"
+      ],
+      "groups": [
+        "Amana Tool Corp (AMATO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666667,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Countersink": {
+      "canonical": "Countersink",
+      "aliases": [
+        "Countersink"
+      ],
+      "groups": [
+        "Amana Tool Corp (AMATO)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "Whiteside": {
+      "canonical": "Whiteside",
+      "aliases": [
+        "Whiteside"
+      ],
+      "groups": [
+        "Whiteside Machine & Repair Co (WHIMA)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Router": {
+      "canonical": "Router",
+      "aliases": [
+        "Router"
+      ],
+      "groups": [
+        "Whiteside Machine & Repair Co (WHIMA)"
+      ],
+      "support": 3,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5416666666666666,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.54 (tail-weighted)"
+    },
+    "Carrying": {
+      "canonical": "Carrying",
+      "aliases": [
+        "Carrying"
+      ],
+      "groups": [
+        "Vessel Tools USA Inc (VESTO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.29166666666666663,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.29 (head-weighted)"
+    },
+    "Holder": {
+      "canonical": "Holder",
+      "aliases": [
+        "Holder"
+      ],
+      "groups": [
+        "Vessel Tools USA Inc (VESTO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5833333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.58 (tail-weighted)"
+    },
+    "Screwdriver": {
+      "canonical": "Screwdriver",
+      "aliases": [
+        "Screwdriver"
+      ],
+      "groups": [
+        "Vessel Tools USA Inc (VESTO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.38888888888888884,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.39 (head-weighted)"
+    },
+    "Torsion": {
+      "canonical": "Torsion",
+      "aliases": [
+        "Torsion"
+      ],
+      "groups": [
+        "Vessel Tools USA Inc (VESTO)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.55,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.55 (tail-weighted)"
+    },
+    "Mini": {
+      "canonical": "Mini",
+      "aliases": [
+        "Mini"
+      ],
+      "groups": [
+        "Malco Prod (2370)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Snip": {
+      "canonical": "Snip",
+      "aliases": [
+        "Snip"
+      ],
+      "groups": [
+        "Malco Prod (2370)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Reel": {
+      "canonical": "Reel",
+      "aliases": [
+        "Reel"
+      ],
+      "groups": [
+        "Irwin Industrial Tools (5863)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "Chalk": {
+      "canonical": "Chalk",
+      "aliases": [
+        "Chalk"
+      ],
+      "groups": [
+        "Irwin Industrial Tools (5863)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Ionic": {
+      "canonical": "Ionic",
+      "aliases": [
+        "Ionic"
+      ],
+      "groups": [
+        "Kreg Tool Company (KRETO)"
+      ],
+      "support": 7,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.24523809523809523,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.25 (head-weighted)"
+    },
+    "Press": {
+      "canonical": "Press",
+      "aliases": [
+        "Press"
+      ],
+      "groups": [
+        "King Canada Inc (KINCA)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Voyager": {
+      "canonical": "Voyager",
+      "aliases": [
+        "Voyager"
+      ],
+      "groups": [
+        "King Canada Inc (KINCA)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Planer": {
+      "canonical": "Planer",
+      "aliases": [
+        "Planer"
+      ],
+      "groups": [
+        "King Canada Inc (KINCA)",
+        "CMT USA Inc (CMTUS)",
+        "Oliver Machinery Company (OLIMA)"
+      ],
+      "support": 7,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4523809523809524,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.45 (tail-weighted)"
+    },
+    "Portable": {
+      "canonical": "Portable",
+      "aliases": [
+        "Portable"
+      ],
+      "groups": [
+        "King Canada Inc (KINCA)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Dust": {
+      "canonical": "Dust",
+      "aliases": [
+        "Dust"
+      ],
+      "groups": [
+        "Festool USA (FESTO)"
+      ],
+      "support": 5,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.29,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.29 (head-weighted)"
+    },
+    "Locked": {
+      "canonical": "Locked",
+      "aliases": [
+        "Locked"
+      ],
+      "groups": [
+        "CMT USA Inc (CMTUS)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "Dado": {
+      "canonical": "Dado",
+      "aliases": [
+        "Dado"
+      ],
+      "groups": [
+        "CMT USA Inc (CMTUS)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "Knives": {
+      "canonical": "Knives",
+      "aliases": [
+        "Knives"
+      ],
+      "groups": [
+        "CMT USA Inc (CMTUS)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.50 (tail-weighted)"
+    },
+    "SFX": {
+      "canonical": "SFX",
+      "aliases": [
+        "SFX"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.29166666666666663,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.29 (head-weighted)"
+    },
+    "Bandsaw": {
+      "canonical": "Bandsaw",
+      "aliases": [
+        "Bandsaw"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 3,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6388888888888888,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.64 (tail-weighted)"
+    },
+    "JWBS": {
+      "canonical": "JWBS",
+      "aliases": [
+        "JWBS"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "SFX-BLK": {
+      "canonical": "SFX-BLK",
+      "aliases": [
+        "SFX-BLK"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.25,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.25 (head-weighted)"
+    },
+    "JTP-": {
+      "canonical": "JTP-",
+      "aliases": [
+        "JTP-"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.75,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.75 (tail-weighted)"
+    },
+    "JWBS-": {
+      "canonical": "JWBS-",
+      "aliases": [
+        "JWBS-"
+      ],
+      "groups": [
+        "JPW Industries (JPWIN)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Spindle": {
+      "canonical": "Spindle",
+      "aliases": [
+        "Spindle"
+      ],
+      "groups": [
+        "Woodstock Intl (3658)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.63 (tail-weighted)"
+    },
+    "OscillatingEdge": {
+      "canonical": "OscillatingEdge",
+      "aliases": [
+        "OscillatingEdge"
+      ],
+      "groups": [
+        "Woodstock Intl (3658)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.2,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.20 (head-weighted)"
+    },
+    "Belt": {
+      "canonical": "Belt",
+      "aliases": [
+        "Belt"
+      ],
+      "groups": [
+        "Woodstock Intl (3658)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.5333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.53 (tail-weighted)"
+    },
+    "XTENDER": {
+      "canonical": "XTENDER",
+      "aliases": [
+        "XTENDER"
+      ],
+      "groups": [
+        "Bow Products (BOWPR)"
+      ],
+      "support": 5,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Fence": {
+      "canonical": "Fence",
+      "aliases": [
+        "Fence"
+      ],
+      "groups": [
+        "Bow Products (BOWPR)",
+        "Saw Stop LLC (SAWST)"
+      ],
+      "support": 9,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.4999999999999999,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.50 (tail-weighted)"
+    },
+    "Professional": {
+      "canonical": "Professional",
+      "aliases": [
+        "Professional"
+      ],
+      "groups": [
+        "Saw Stop LLC (SAWST)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.7083333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.71 (tail-weighted)"
+    },
+    "T-Glide": {
+      "canonical": "T-Glide",
+      "aliases": [
+        "T-Glide"
+      ],
+      "groups": [
+        "Saw Stop LLC (SAWST)"
+      ],
+      "support": 4,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    },
+    "Industrial": {
+      "canonical": "Industrial",
+      "aliases": [
+        "Industrial"
+      ],
+      "groups": [
+        "Saw Stop LLC (SAWST)"
+      ],
+      "support": 2,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.625,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.62 (tail-weighted)"
+    },
+    "Oliver": {
+      "canonical": "Oliver",
+      "aliases": [
+        "Oliver"
+      ],
+      "groups": [
+        "Oliver Machinery Company (OLIMA)"
+      ],
+      "support": 6,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.00 (head-weighted)"
+    },
+    "Benchtop": {
+      "canonical": "Benchtop",
+      "aliases": [
+        "Benchtop"
+      ],
+      "groups": [
+        "Oliver Machinery Company (OLIMA)"
+      ],
+      "support": 2,
+      "linkage": "blocked:product-vocabulary",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "token is product vocabulary, not a brand; mean position 0.33 (head-weighted)"
+    },
+    "Feeder": {
+      "canonical": "Feeder",
+      "aliases": [
+        "Feeder"
+      ],
+      "groups": [
+        "J&G Machinery (JGMAC)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.3333333333333333,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.33 (head-weighted)"
+    },
+    "Steff": {
+      "canonical": "Steff",
+      "aliases": [
+        "Steff"
+      ],
+      "groups": [
+        "J&G Machinery (JGMAC)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.6666666666666666,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.67 (tail-weighted)"
+    },
+    "Stock": {
+      "canonical": "Stock",
+      "aliases": [
+        "Stock"
+      ],
+      "groups": [
+        "J&G Machinery (JGMAC)"
+      ],
+      "support": 1,
+      "linkage": "unlinked",
+      "confidence": 0.0,
+      "attested": false,
+      "mean_position": 0.0,
+      "rejection": "no attested spelling within 82 similarity; mean position 0.00 (head-weighted)"
+    }
+  },
+  "alias_index": {
+    "diablo": "Diablo",
+    "milw": "Milwaukee",
+    "milwaukee": "Milwaukee",
+    "emseal joint": "Emseal Joint",
+    "emseal": "Emseal Joint",
+    "trex": "TREX",
+    "azek": "AZEK",
+    "dsi westbury": "DSI Westbury",
+    "dsi": "DSI Westbury",
+    "united": "United Window & Door",
+    "united window & door": "United Window & Door",
+    "velux": "Velux",
+    "premier": "Premier",
+    "mounts": "StealthMounts",
+    "stealthmounts": "StealthMounts",
+    "dewalt": "DEWALT",
+    "lutron": "Lutron",
+    "kichler": "Kichler",
+    "feit": "Feit Electric",
+    "feit electric": "Feit Electric",
+    "king canada": "King Canada",
+    "king": "King Canada",
+    "police security": "Police Security",
+    "police": "Police Security",
+    "senco": "Senco",
+    "prebena": "Prebena",
+    "hunter": "Hunter",
+    "makita": "Makita",
+    "dremel": "Dremel",
+    "amana": "Amana",
+    "vessel": "Vessel",
+    "irwin": "Irwin",
+    "kreg": "Kreg",
+    "festool": "Festool",
+    "cmt": "CMT",
+    "jet": "JET",
+    "grizzly": "Grizzly",
+    "3m": "3M",
+    "schumacher": "Schumacher",
+    "southwire": "Southwire",
+    "carlon": "Carlon",
+    "leviton": "Leviton",
+    "prime": "Prime",
+    "satco": "Satco",
+    "wiz": "Wiz",
+    "philips": "Philips",
+    "gt-lite": "GT-Lite",
+    "square d": "Square D",
+    "first alert": "First Alert",
+    "brk": "BRK",
+    "nicholson": "Nicholson",
+    "timbertech": "TIMBERTECH",
+    "ajm": "AJM",
+    "provia": "PROVIA",
+    "hager": "HAGER",
+    "jameshardie": "JAMESHARDIE",
+    "lp smartside": "LP SMARTSIDE",
+    "andersen": "ANDERSEN",
+    "century components": "CENTURY COMPONENTS"
+  },
+  "product_types": {
+    "Cubitron II Disc Box": {
+      "canonical": "Cubitron II Disc Box",
+      "support": 6,
+      "groups": [
+        "Jam Industrial Supply LLC (JAMIN)"
+      ],
+      "variants": []
+    },
+    "HIOLIT": {
+      "canonical": "HIOLIT",
+      "support": 2,
+      "groups": [
+        "Mirka Abrasives Inc (MIRUS)"
+      ],
+      "variants": []
+    },
+    "Abranet": {
+      "canonical": "Abranet",
+      "support": 4,
+      "groups": [
+        "Mirka Abrasives Inc (MIRUS)"
+      ],
+      "variants": []
+    },
+    "Demon Metal Cut-Off Disc": {
+      "canonical": "Demon Metal Cut-Off Disc",
+      "support": 4,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Metal Cut Off Disc": {
+      "canonical": "Metal Cut Off Disc",
+      "support": 21,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Off Disc General Purpose": {
+      "canonical": "Off Disc General Purpose",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Cut and Grind Disc": {
+      "canonical": "Cut and Grind Disc",
+      "support": 3,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Masonry Cut Off Disc": {
+      "canonical": "Masonry Cut Off Disc",
+      "support": 7,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Metal Grinding Wheel": {
+      "canonical": "Metal Grinding Wheel",
+      "support": 5,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Masonry Grinding Wheel": {
+      "canonical": "Masonry Grinding Wheel",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Dishwasher Stainless Steel": {
+      "canonical": "Dishwasher Stainless Steel",
+      "support": 3,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "Dishwasher SS"
+      ]
+    },
+    "GE Dishwasher Stainless Steel": {
+      "canonical": "GE Dishwasher Stainless Steel",
+      "support": 2,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "GE Dishwasher SS",
+        "Ge Dishwasher SS"
+      ]
+    },
+    "Square Electric Dryer Black": {
+      "canonical": "Square Electric Dryer Black",
+      "support": 2,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "SQ Elect Dryer Bk"
+      ]
+    },
+    "Square Electric Dryer White": {
+      "canonical": "Square Electric Dryer White",
+      "support": 2,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "SQ Elect Dryer Wh"
+      ]
+    },
+    "Display": {
+      "canonical": "Display",
+      "support": 5,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": []
+    },
+    "Speed Queen Washer White": {
+      "canonical": "Speed Queen Washer White",
+      "support": 3,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "Speed Queen Washer Wh"
+      ]
+    },
+    "Square Gas Dryer White": {
+      "canonical": "Square Gas Dryer White",
+      "support": 4,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "SQ Gas Dryer Wh"
+      ]
+    },
+    "Square Gas Dryer Black": {
+      "canonical": "Square Gas Dryer Black",
+      "support": 2,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "SQ Gas Dryer Bk"
+      ]
+    },
+    "Type": {
+      "canonical": "Type",
+      "support": 4,
+      "groups": [
+        "Rees Cast Stone Company (REECA)"
+      ],
+      "variants": []
+    },
+    "Square Composite Balusters": {
+      "canonical": "Square Composite Balusters",
+      "support": 4,
+      "groups": [
+        "U S Lumber (3073)"
+      ],
+      "variants": [
+        "Sq Composite Balusters"
+      ]
+    },
+    "Fl Rail Kit Square": {
+      "canonical": "Fl Rail Kit Square",
+      "support": 3,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": [
+        "Fl Rail Kit Sq"
+      ]
+    },
+    "Black Aluminum Balusters": {
+      "canonical": "Black Aluminum Balusters",
+      "support": 6,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": [
+        "Black Alum Balusters"
+      ]
+    },
+    "Rnd Black Aluminum Baluster": {
+      "canonical": "Rnd Black Aluminum Baluster",
+      "support": 4,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": [
+        "Rnd Black Alum Baluster"
+      ]
+    },
+    "Assembled Black Rail Panel": {
+      "canonical": "Assembled Black Rail Panel",
+      "support": 4,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Vintage PVC Decking": {
+      "canonical": "Vintage PVC Decking",
+      "support": 20,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Landmark PVC Decking": {
+      "canonical": "Landmark PVC Decking",
+      "support": 15,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Harvest PVC Decking": {
+      "canonical": "Harvest PVC Decking",
+      "support": 10,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Transcend Lineage Decking": {
+      "canonical": "Transcend Lineage Decking",
+      "support": 35,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)",
+        "U S Lumber (3073)"
+      ],
+      "variants": []
+    },
+    "Enhance Naturals Decking": {
+      "canonical": "Enhance Naturals Decking",
+      "support": 15,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Enhance Basics Decking": {
+      "canonical": "Enhance Basics Decking",
+      "support": 10,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Select Decking": {
+      "canonical": "Select Decking",
+      "support": 14,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Vintage PVC Fascia": {
+      "canonical": "Vintage PVC Fascia",
+      "support": 3,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Landmark PVC Fascia": {
+      "canonical": "Landmark PVC Fascia",
+      "support": 3,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Harvest PVC Fascia": {
+      "canonical": "Harvest PVC Fascia",
+      "support": 4,
+      "groups": [
+        "Parksite (6151)"
+      ],
+      "variants": []
+    },
+    "Lineage": {
+      "canonical": "Lineage",
+      "support": 14,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)",
+        "U S Lumber (3073)"
+      ],
+      "variants": []
+    },
+    "Enhance Naturals Fascia": {
+      "canonical": "Enhance Naturals Fascia",
+      "support": 6,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Enhance Basics Fascia": {
+      "canonical": "Enhance Basics Fascia",
+      "support": 4,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Select Fascia": {
+      "canonical": "Select Fascia",
+      "support": 6,
+      "groups": [
+        "Boise Cascade Building Materials (BOICA)"
+      ],
+      "variants": []
+    },
+    "Elite Post Trim RDI": {
+      "canonical": "Elite Post Trim RDI",
+      "support": 3,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": []
+    },
+    "White Post Sleeve RDI": {
+      "canonical": "White Post Sleeve RDI",
+      "support": 2,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": [
+        "Wh Post Sleeve RDI"
+      ]
+    },
+    "Clay Post Sleeve RDI": {
+      "canonical": "Clay Post Sleeve RDI",
+      "support": 2,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": []
+    },
+    "Str Rail Kit Square": {
+      "canonical": "Str Rail Kit Square",
+      "support": 2,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": [
+        "Str Rail Kit Sq"
+      ]
+    },
+    "White Interior LowE Arg": {
+      "canonical": "White Interior LowE Arg",
+      "support": 2,
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "variants": [
+        "WH Int LowE Arg"
+      ]
+    },
+    "Dr White LowE Arg": {
+      "canonical": "Dr White LowE Arg",
+      "support": 2,
+      "groups": [
+        "United Window & Door Manufacturing (UNIWI)"
+      ],
+      "variants": []
+    },
+    "Solar Shade RO": {
+      "canonical": "Solar Shade RO",
+      "support": 3,
+      "groups": [
+        "Velux America Inc (VELAM)"
+      ],
+      "variants": []
+    },
+    "Hopper DLA Screen": {
+      "canonical": "Hopper DLA Screen",
+      "support": 2,
+      "groups": [
+        "ProVia (PRODO)"
+      ],
+      "variants": []
+    },
+    "Aluminum Threshold DBZ": {
+      "canonical": "Aluminum Threshold DBZ",
+      "support": 2,
+      "groups": [
+        "Hager Hinge Co (4189)"
+      ],
+      "variants": [
+        "Alum Threshold DBZ"
+      ]
+    },
+    "Doug Fir STK Smooth": {
+      "canonical": "Doug Fir STK Smooth",
+      "support": 4,
+      "groups": [
+        "Westwood Lumber Sales (WESLU)"
+      ],
+      "variants": []
+    },
+    "Rib XL Black": {
+      "canonical": "Rib XL Black",
+      "support": 3,
+      "groups": [
+        "Premier Metals (PREME)"
+      ],
+      "variants": []
+    },
+    "Rib XL Charcoal": {
+      "canonical": "Rib XL Charcoal",
+      "support": 3,
+      "groups": [
+        "Premier Metals (PREME)"
+      ],
+      "variants": []
+    },
+    "Rib XL White": {
+      "canonical": "Rib XL White",
+      "support": 2,
+      "groups": [
+        "Premier Metals (PREME)"
+      ],
+      "variants": []
+    },
+    "Insulated R-Sheathing": {
+      "canonical": "Insulated R-Sheathing",
+      "support": 3,
+      "groups": [
+        "<ungrouped>"
+      ],
+      "variants": []
+    },
+    "Box Cover": {
+      "canonical": "Box Cover",
+      "support": 3,
+      "groups": [
+        "Southwire/g Turner (6603)"
+      ],
+      "variants": []
+    },
+    "Wall Light": {
+      "canonical": "Wall Light",
+      "support": 14,
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": [
+        "Wall Lt"
+      ]
+    },
+    "Bath Light": {
+      "canonical": "Bath Light",
+      "support": 3,
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": []
+    },
+    "Chandelier Light": {
+      "canonical": "Chandelier Light",
+      "support": 15,
+      "groups": [
+        "<ungrouped>",
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": [
+        "Chand Lt",
+        "Chandelier Lt"
+      ]
+    },
+    "Ceiling Light": {
+      "canonical": "Ceiling Light",
+      "support": 4,
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": [
+        "Ceiling Lt"
+      ]
+    },
+    "LED Ceiling Light": {
+      "canonical": "LED Ceiling Light",
+      "support": 3,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Led Ceiling Lt"
+      ]
+    },
+    "Pendant Light": {
+      "canonical": "Pendant Light",
+      "support": 15,
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": [
+        "Pendant Lt"
+      ]
+    },
+    "Down Light White": {
+      "canonical": "Down Light White",
+      "support": 2,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Down Light Wh"
+      ]
+    },
+    "Down Light": {
+      "canonical": "Down Light",
+      "support": 2,
+      "groups": [
+        "Cooper Lighting (7638)",
+        "Lithonia Lighting (2776)"
+      ],
+      "variants": []
+    },
+    "Ceiling Light White": {
+      "canonical": "Ceiling Light White",
+      "support": 2,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Ceiling Lt Wh"
+      ]
+    },
+    "Ceiling Light Black": {
+      "canonical": "Ceiling Light Black",
+      "support": 2,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Ceiling Lt Bk"
+      ]
+    },
+    "LED Wrap Light": {
+      "canonical": "LED Wrap Light",
+      "support": 2,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "LED Wrap Lt"
+      ]
+    },
+    "Fluorescent T": {
+      "canonical": "Fluorescent T",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": [
+        "Flor T"
+      ]
+    },
+    "Incandescent": {
+      "canonical": "Incandescent",
+      "support": 2,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Incan"
+      ]
+    },
+    "Incandescent Med": {
+      "canonical": "Incandescent Med",
+      "support": 4,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Incan Med"
+      ]
+    },
+    "Incandescent Cand": {
+      "canonical": "Incandescent Cand",
+      "support": 4,
+      "groups": [
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": [
+        "Incan Cand"
+      ]
+    },
+    "LED Bulb": {
+      "canonical": "LED Bulb",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)",
+        "Satco Prod Inc (5573)"
+      ],
+      "variants": []
+    },
+    "LED Multi CCT": {
+      "canonical": "LED Multi CCT",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED Med": {
+      "canonical": "LED Med",
+      "support": 54,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED ST": {
+      "canonical": "LED ST",
+      "support": 5,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "Adjustable Base": {
+      "canonical": "Adjustable Base",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": [
+        "Adj Base"
+      ]
+    },
+    "LED": {
+      "canonical": "LED",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED Cand": {
+      "canonical": "LED Cand",
+      "support": 8,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED BR Med": {
+      "canonical": "LED BR Med",
+      "support": 7,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED Par Med": {
+      "canonical": "LED Par Med",
+      "support": 5,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "LED Par": {
+      "canonical": "LED Par",
+      "support": 2,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "Cand LED": {
+      "canonical": "Cand LED",
+      "support": 4,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "Med LED": {
+      "canonical": "Med LED",
+      "support": 3,
+      "groups": [
+        "Phillips Lighting (5831)"
+      ],
+      "variants": []
+    },
+    "Exterior Wall Light": {
+      "canonical": "Exterior Wall Light",
+      "support": 3,
+      "groups": [
+        "Kichler Lighting (KICLI)"
+      ],
+      "variants": [
+        "Ext Wall Lt"
+      ]
+    },
+    "Load Center": {
+      "canonical": "Load Center",
+      "support": 2,
+      "groups": [
+        "Square D Con Prod Dv (6825)"
+      ],
+      "variants": []
+    },
+    "Cord": {
+      "canonical": "Cord",
+      "support": 2,
+      "groups": [
+        "<ungrouped>",
+        "Southwire/g Turner (6603)"
+      ],
+      "variants": []
+    },
+    "KW GFCI Outlet White": {
+      "canonical": "KW GFCI Outlet White",
+      "support": 2,
+      "groups": [
+        "Leviton Mfg Co (4927)"
+      ],
+      "variants": [
+        "KW GFCI Outlet Wh"
+      ]
+    },
+    "Cord Connector": {
+      "canonical": "Cord Connector",
+      "support": 2,
+      "groups": [
+        "Leviton Mfg Co (4927)"
+      ],
+      "variants": [
+        "Cord Conn"
+      ]
+    },
+    "Blank": {
+      "canonical": "Blank",
+      "support": 2,
+      "groups": [
+        "Leviton Mfg Co (4927)"
+      ],
+      "variants": []
+    },
+    "Electric Range Stainless Steel": {
+      "canonical": "Electric Range Stainless Steel",
+      "support": 3,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "Elect Range SS"
+      ]
+    },
+    "GE Refrigerator Stainless Steel": {
+      "canonical": "GE Refrigerator Stainless Steel",
+      "support": 3,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": [
+        "GE Fridge SS"
+      ]
+    },
+    "Upright": {
+      "canonical": "Upright",
+      "support": 2,
+      "groups": [
+        "Appliance Dealers Cooperative (APPDE)"
+      ],
+      "variants": []
+    },
+    "CT": {
+      "canonical": "CT",
+      "support": 4,
+      "groups": [
+        "Festool USA (FESTO)",
+        "Senco Products Inc (4650)"
+      ],
+      "variants": []
+    },
+    "Staple": {
+      "canonical": "Staple",
+      "support": 2,
+      "groups": [
+        "Prebena (PREBE)"
+      ],
+      "variants": []
+    },
+    "MB Anisten Fan": {
+      "canonical": "MB Anisten Fan",
+      "support": 2,
+      "groups": [
+        "Hunter Fan Co (4381)"
+      ],
+      "variants": []
+    },
+    "White Anisten Fan": {
+      "canonical": "White Anisten Fan",
+      "support": 2,
+      "groups": [
+        "Hunter Fan Co (4381)"
+      ],
+      "variants": [
+        "WH Anisten Fan"
+      ]
+    },
+    "Insulated": {
+      "canonical": "Insulated",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Black Aluminum Post Wrap": {
+      "canonical": "Black Aluminum Post Wrap",
+      "support": 3,
+      "groups": [
+        "Palmer Donavin Mfg Company (PALDO)"
+      ],
+      "variants": [
+        "Black Alum Post Wrap"
+      ]
+    },
+    "Kabru Black Frame": {
+      "canonical": "Kabru Black Frame",
+      "support": 2,
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "variants": []
+    },
+    "Tacana Black Frame": {
+      "canonical": "Tacana Black Frame",
+      "support": 2,
+      "groups": [
+        "Edge Eyewear Inc (EDGSA)"
+      ],
+      "variants": []
+    },
+    "FEEFX Lith Fire Extinguisher": {
+      "canonical": "FEEFX Lith Fire Extinguisher",
+      "support": 2,
+      "groups": [
+        "Ohio Firewatch Protection Inc (HOLFS)"
+      ],
+      "variants": []
+    },
+    "Smoke CO Alarm": {
+      "canonical": "Smoke CO Alarm",
+      "support": 2,
+      "groups": [
+        "First Alert - B R K Brands (2754)"
+      ],
+      "variants": []
+    },
+    "Heated Work Glove Liners": {
+      "canonical": "Heated Work Glove Liners",
+      "support": 4,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Aerial Snow Heated Glove": {
+      "canonical": "Aerial Snow Heated Glove",
+      "support": 5,
+      "groups": [
+        "Tech Gear 5.7 Inc (TECGE)"
+      ],
+      "variants": []
+    },
+    "Black Heated Hoodie Kit": {
+      "canonical": "Black Heated Hoodie Kit",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": [
+        "BLK Heated Hoodie Kit"
+      ]
+    },
+    "Heated Hoodie Kit": {
+      "canonical": "Heated Hoodie Kit",
+      "support": 4,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Heated Hoodie Kit XL": {
+      "canonical": "Heated Hoodie Kit XL",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "BigCal": {
+      "canonical": "BigCal",
+      "support": 2,
+      "groups": [
+        "Woodpeckers Inc (WOODP)"
+      ],
+      "variants": []
+    },
+    "Mason Line Brd Orange": {
+      "canonical": "Mason Line Brd Orange",
+      "support": 2,
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "variants": []
+    },
+    "Replacement": {
+      "canonical": "Replacement",
+      "support": 3,
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "variants": []
+    },
+    "Mason Line Brd Green": {
+      "canonical": "Mason Line Brd Green",
+      "support": 2,
+      "groups": [
+        "U S Tape Company (6694)"
+      ],
+      "variants": []
+    },
+    "Whiteside Router Bit": {
+      "canonical": "Whiteside Router Bit",
+      "support": 3,
+      "groups": [
+        "Whiteside Machine & Repair Co (WHIMA)"
+      ],
+      "variants": []
+    },
+    "Saw Blade": {
+      "canonical": "Saw Blade",
+      "support": 2,
+      "groups": [
+        "Freud Inc (2435)",
+        "Marshalltown Trowel (5155)"
+      ],
+      "variants": []
+    },
+    "Folding Knife": {
+      "canonical": "Folding Knife",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)"
+      ],
+      "variants": []
+    },
+    "Socket Adapter": {
+      "canonical": "Socket Adapter",
+      "support": 3,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Mechanics Set": {
+      "canonical": "Mechanics Set",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)"
+      ],
+      "variants": []
+    },
+    "Hedge Trimmer": {
+      "canonical": "Hedge Trimmer",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Brushless Compact Bare": {
+      "canonical": "Brushless Compact Bare",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Bit": {
+      "canonical": "Bit",
+      "support": 9,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Drive Bit": {
+      "canonical": "Drive Bit",
+      "support": 3,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Square Drive Bit": {
+      "canonical": "Square Drive Bit",
+      "support": 4,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Torx Drive Bit": {
+      "canonical": "Torx Drive Bit",
+      "support": 7,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Impact Wrench Friction Ring": {
+      "canonical": "Impact Wrench Friction Ring",
+      "support": 2,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Bare Tool": {
+      "canonical": "Bare Tool",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)",
+        "Makita Usa Inc (5142)"
+      ],
+      "variants": []
+    },
+    "Angle Impact": {
+      "canonical": "Angle Impact",
+      "support": 3,
+      "groups": [
+        "Makita Usa Inc (5142)"
+      ],
+      "variants": []
+    },
+    "Angle Grinder Bare": {
+      "canonical": "Angle Grinder Bare",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)"
+      ],
+      "variants": []
+    },
+    "ETSC I-Plus": {
+      "canonical": "ETSC I-Plus",
+      "support": 2,
+      "groups": [
+        "Festool USA (FESTO)"
+      ],
+      "variants": []
+    },
+    "GR PRO": {
+      "canonical": "GR PRO",
+      "support": 6,
+      "groups": [
+        "Festool USA (FESTO)"
+      ],
+      "variants": []
+    },
+    "Blade": {
+      "canonical": "Blade",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)",
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Laminate Wood Flooring": {
+      "canonical": "Laminate Wood Flooring",
+      "support": 3,
+      "groups": [
+        "Freud Inc (2435)"
+      ],
+      "variants": []
+    },
+    "Tile Blade": {
+      "canonical": "Tile Blade",
+      "support": 5,
+      "groups": [
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Ionic Circular Saw": {
+      "canonical": "Ionic Circular Saw",
+      "support": 2,
+      "groups": [
+        "Kreg Tool Company (KRETO)"
+      ],
+      "variants": [
+        "Ionic Circ Saw"
+      ]
+    },
+    "XT XTENDER Fence": {
+      "canonical": "XT XTENDER Fence",
+      "support": 3,
+      "groups": [
+        "Bow Products (BOWPR)"
+      ],
+      "variants": []
+    },
+    "XTP": {
+      "canonical": "XTP",
+      "support": 2,
+      "groups": [
+        "Bow Products (BOWPR)"
+      ],
+      "variants": []
+    },
+    "Starter Kit": {
+      "canonical": "Starter Kit",
+      "support": 3,
+      "groups": [
+        "Black & Decker/dewlt (2585)",
+        "Makita Usa Inc (5142)"
+      ],
+      "variants": []
+    },
+    "Ah Battery Pack": {
+      "canonical": "Ah Battery Pack",
+      "support": 2,
+      "groups": [
+        "Kreg Tool Company (KRETO)"
+      ],
+      "variants": []
+    },
+    "Charger": {
+      "canonical": "Charger",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)",
+        "Milwaukee Accessory (4031)"
+      ],
+      "variants": []
+    },
+    "Kit": {
+      "canonical": "Kit",
+      "support": 2,
+      "groups": [
+        "Black & Decker/dewlt (2585)",
+        "Robt Bosch Tool Corp (6564)"
+      ],
+      "variants": []
+    },
+    "Oliver Benchtop Planer": {
+      "canonical": "Oliver Benchtop Planer",
+      "support": 2,
+      "groups": [
+        "Oliver Machinery Company (OLIMA)"
+      ],
+      "variants": []
+    },
+    "Oliver Planer": {
+      "canonical": "Oliver Planer",
+      "support": 2,
+      "groups": [
+        "Oliver Machinery Company (OLIMA)"
+      ],
+      "variants": []
+    }
+  },
+  "series": {
+    "Stikit Film P": 6,
+    "Coastline Grooved": 3,
+    "English Walnut Grooved": 3,
+    "Mahogany Grooved": 3,
+    "Weathered Teak Grooved": 3,
+    "American Walnut Groove": 3,
+    "Castle Gate Grooved": 3,
+    "French White Oak Groov": 3,
+    "Brownstone Grooved": 3,
+    "Slate Gray Grooved": 3,
+    "Biscayne Grooved": 3,
+    "Carmel Grooved": 3,
+    "Island Mist Grooved": 3,
+    "Jasper Grooved": 3,
+    "Rainier Grooved": 3,
+    "Hatteras Grooved": 3,
+    "Salt Flat Grooved": 3,
+    "Honey Grove Grooved": 3,
+    "Tide Pool Grooved": 3,
+    "Cinnamon Cove Grooved": 3,
+    "Pebble Beach Grooved": 3,
+    "Malted Barley Grooved": 3,
+    "Millstone Grooved": 3,
+    "Whiskey Barrel Grooved": 3,
+    "Slate Gray": 2,
+    "Salt Flat": 2,
+    "Honey Grove": 2,
+    "Tide Pool": 2,
+    "Cinnamon Cove": 2,
+    "Pebble Beach": 2,
+    "Malted Barley": 2,
+    "Whiskey Barrel": 2,
+    "Island Mist": 2,
+    "Fxd Skylt Gry": 3,
+    "Smart Pan Cedar": 2,
+    "Huber Zip R": 3,
+    "Edge Safety Glasses": 9,
+    "Packout 15": 3,
+    "Phillips Drive": 6,
+    "Torx Drive": 3,
+    "Miter Saw": 3,
+    "Dust Extractor": 3
+  },
+  "groups": {
+    "Freud Inc (2435)": {
+      "name": "Freud Inc",
+      "code": "2435",
+      "rows": "46"
+    },
+    "Jam Industrial Supply LLC (JAMIN)": {
+      "name": "Jam Industrial Supply LLC",
+      "code": "JAMIN",
+      "rows": "6"
+    },
+    "Mirka Abrasives Inc (MIRUS)": {
+      "name": "Mirka Abrasives Inc",
+      "code": "MIRUS",
+      "rows": "9"
+    },
+    "Milwaukee Accessory (4031)": {
+      "name": "Milwaukee Accessory",
+      "code": "4031",
+      "rows": "108"
+    },
+    "3 M Co (5293)": {
+      "name": "3 M Co",
+      "code": "5293",
+      "rows": "1"
+    },
+    "Emseal Joint Systems Ltd (EMSJO)": {
+      "name": "Emseal Joint Systems Ltd",
+      "code": "EMSJO",
+      "rows": "1"
+    },
+    "Appliance Dealers Cooperative (APPDE)": {
+      "name": "Appliance Dealers Cooperative",
+      "code": "APPDE",
+      "rows": "84"
+    },
+    "V & V Appliance Parts Inc (VVAPP)": {
+      "name": "V & V Appliance Parts Inc",
+      "code": "VVAPP",
+      "rows": "1"
+    },
+    "Wera Tools NA Inc (WERTO)": {
+      "name": "Wera Tools NA Inc",
+      "code": "WERTO",
+      "rows": "2"
+    },
+    "<ungrouped>": {
+      "name": "",
+      "code": "",
+      "rows": "41"
+    },
+    "Rees Cast Stone Company (REECA)": {
+      "name": "Rees Cast Stone Company",
+      "code": "REECA",
+      "rows": "4"
+    },
+    "U S Lumber (3073)": {
+      "name": "U S Lumber",
+      "code": "3073",
+      "rows": "43"
+    },
+    "Boise Cascade Building Materials (BOICA)": {
+      "name": "Boise Cascade Building Materials",
+      "code": "BOICA",
+      "rows": "85"
+    },
+    "Parksite (6151)": {
+      "name": "Parksite",
+      "code": "6151",
+      "rows": "55"
+    },
+    "Palmer Donavin Mfg Company (PALDO)": {
+      "name": "Palmer Donavin Mfg Company",
+      "code": "PALDO",
+      "rows": "9"
+    },
+    "A J Manufacturing Inc (AJMAN)": {
+      "name": "A J Manufacturing Inc",
+      "code": "AJMAN",
+      "rows": "1"
+    },
+    "United Window & Door Manufacturing (UNIWI)": {
+      "name": "United Window & Door Manufacturing",
+      "code": "UNIWI",
+      "rows": "4"
+    },
+    "Velux America Inc (VELAM)": {
+      "name": "Velux America Inc",
+      "code": "VELAM",
+      "rows": "3"
+    },
+    "ProVia (PRODO)": {
+      "name": "ProVia",
+      "code": "PRODO",
+      "rows": "2"
+    },
+    "Certainteed Gypsum (2765)": {
+      "name": "Certainteed Gypsum",
+      "code": "2765",
+      "rows": "2"
+    },
+    "Hager Hinge Co (4189)": {
+      "name": "Hager Hinge Co",
+      "code": "4189",
+      "rows": "2"
+    },
+    "Huber Eng Wood LLC (3158)": {
+      "name": "Huber Eng Wood LLC",
+      "code": "3158",
+      "rows": "1"
+    },
+    "Westwood Lumber Sales (WESLU)": {
+      "name": "Westwood Lumber Sales",
+      "code": "WESLU",
+      "rows": "4"
+    },
+    "Premier Metals (PREME)": {
+      "name": "Premier Metals",
+      "code": "PREME",
+      "rows": "8"
+    },
+    "MillerTech Energy Solutions (MILTE)": {
+      "name": "MillerTech Energy Solutions",
+      "code": "MILTE",
+      "rows": "1"
+    },
+    "Metalmark Industrial Inc (METIN)": {
+      "name": "Metalmark Industrial Inc",
+      "code": "METIN",
+      "rows": "1"
+    },
+    "Southwire/g Turner (6603)": {
+      "name": "Southwire/g Turner",
+      "code": "6603",
+      "rows": "19"
+    },
+    "Thomas & Betts (7405)": {
+      "name": "Thomas & Betts",
+      "code": "7405",
+      "rows": "1"
+    },
+    "Cooper Wiring Devices (3560)": {
+      "name": "Cooper Wiring Devices",
+      "code": "3560",
+      "rows": "1"
+    },
+    "Fenton Bros Electric Inc (FENBR)": {
+      "name": "Fenton Bros Electric Inc",
+      "code": "FENBR",
+      "rows": "3"
+    },
+    "Leviton Mfg Co (4927)": {
+      "name": "Leviton Mfg Co",
+      "code": "4927",
+      "rows": "17"
+    },
+    "Prime Wire & Cable (3562)": {
+      "name": "Prime Wire & Cable",
+      "code": "3562",
+      "rows": "5"
+    },
+    "Satco Prod Inc (5573)": {
+      "name": "Satco Prod Inc",
+      "code": "5573",
+      "rows": "41"
+    },
+    "Kichler Lighting (KICLI)": {
+      "name": "Kichler Lighting",
+      "code": "KICLI",
+      "rows": "56"
+    },
+    "Cooper Lighting (7638)": {
+      "name": "Cooper Lighting",
+      "code": "7638",
+      "rows": "2"
+    },
+    "Phillips Lighting (5831)": {
+      "name": "Phillips Lighting",
+      "code": "5831",
+      "rows": "111"
+    },
+    "Lithonia Lighting (2776)": {
+      "name": "Lithonia Lighting",
+      "code": "2776",
+      "rows": "1"
+    },
+    "Feit Electric (3468)": {
+      "name": "Feit Electric",
+      "code": "3468",
+      "rows": "2"
+    },
+    "Keystone (5702)": {
+      "name": "Keystone",
+      "code": "5702",
+      "rows": "1"
+    },
+    "Maxsa Innovations (MAXIN)": {
+      "name": "Maxsa Innovations",
+      "code": "MAXIN",
+      "rows": "1"
+    },
+    "Black & Decker/dewlt (2585)": {
+      "name": "Black & Decker/dewlt",
+      "code": "2585",
+      "rows": "55"
+    },
+    "Streamlight (7277)": {
+      "name": "Streamlight",
+      "code": "7277",
+      "rows": "1"
+    },
+    "ACG Brands (1154)": {
+      "name": "ACG Brands",
+      "code": "1154",
+      "rows": "2"
+    },
+    "Police Security (9470)": {
+      "name": "Police Security",
+      "code": "9470",
+      "rows": "1"
+    },
+    "Square D Con Prod Dv (6825)": {
+      "name": "Square D Con Prod Dv",
+      "code": "6825",
+      "rows": "3"
+    },
+    "Woods Wire Southwire (7579)": {
+      "name": "Woods Wire Southwire",
+      "code": "7579",
+      "rows": "1"
+    },
+    "Senco Products Inc (4650)": {
+      "name": "Senco Products Inc",
+      "code": "4650",
+      "rows": "2"
+    },
+    "National Nail Corp (7439)": {
+      "name": "National Nail Corp",
+      "code": "7439",
+      "rows": "2"
+    },
+    "Prebena (PREBE)": {
+      "name": "Prebena",
+      "code": "PREBE",
+      "rows": "2"
+    },
+    "Hunter Fan Co (4381)": {
+      "name": "Hunter Fan Co",
+      "code": "4381",
+      "rows": "9"
+    },
+    "Makita Usa Inc (5142)": {
+      "name": "Makita Usa Inc",
+      "code": "5142",
+      "rows": "23"
+    },
+    "Sabre (9195)": {
+      "name": "Sabre",
+      "code": "9195",
+      "rows": "1"
+    },
+    "Marshalltown Trowel (5155)": {
+      "name": "Marshalltown Trowel",
+      "code": "5155",
+      "rows": "2"
+    },
+    "Edge Eyewear Inc (EDGSA)": {
+      "name": "Edge Eyewear Inc",
+      "code": "EDGSA",
+      "rows": "10"
+    },
+    "Ohio Firewatch Protection Inc (HOLFS)": {
+      "name": "Ohio Firewatch Protection Inc",
+      "code": "HOLFS",
+      "rows": "2"
+    },
+    "First Alert - B R K Brands (2754)": {
+      "name": "First Alert - B R K Brands",
+      "code": "2754",
+      "rows": "2"
+    },
+    "Tech Gear 5.7 Inc (TECGE)": {
+      "name": "Tech Gear 5.7 Inc",
+      "code": "TECGE",
+      "rows": "11"
+    },
+    "Radians (7363)": {
+      "name": "Radians",
+      "code": "7363",
+      "rows": "1"
+    },
+    "Woodpeckers Inc (WOODP)": {
+      "name": "Woodpeckers Inc",
+      "code": "WOODP",
+      "rows": "4"
+    },
+    "Robt Bosch Tool Corp (6564)": {
+      "name": "Robt Bosch Tool Corp",
+      "code": "6564",
+      "rows": "4"
+    },
+    "U S Tape Company (6694)": {
+      "name": "U S Tape Company",
+      "code": "6694",
+      "rows": "10"
+    },
+    "Amana Tool Corp (AMATO)": {
+      "name": "Amana Tool Corp",
+      "code": "AMATO",
+      "rows": "1"
+    },
+    "Whiteside Machine & Repair Co (WHIMA)": {
+      "name": "Whiteside Machine & Repair Co",
+      "code": "WHIMA",
+      "rows": "3"
+    },
+    "Vessel Tools USA Inc (VESTO)": {
+      "name": "Vessel Tools USA Inc",
+      "code": "VESTO",
+      "rows": "6"
+    },
+    "Malco Prod (2370)": {
+      "name": "Malco Prod",
+      "code": "2370",
+      "rows": "2"
+    },
+    "Irwin Industrial Tools (5863)": {
+      "name": "Irwin Industrial Tools",
+      "code": "5863",
+      "rows": "1"
+    },
+    "Kreg Tool Company (KRETO)": {
+      "name": "Kreg Tool Company",
+      "code": "KRETO",
+      "rows": "11"
+    },
+    "King Canada Inc (KINCA)": {
+      "name": "King Canada Inc",
+      "code": "KINCA",
+      "rows": "2"
+    },
+    "Festool USA (FESTO)": {
+      "name": "Festool USA",
+      "code": "FESTO",
+      "rows": "16"
+    },
+    "CMT USA Inc (CMTUS)": {
+      "name": "CMT USA Inc",
+      "code": "CMTUS",
+      "rows": "3"
+    },
+    "JPW Industries (JPWIN)": {
+      "name": "JPW Industries",
+      "code": "JPWIN",
+      "rows": "3"
+    },
+    "Woodstock Intl (3658)": {
+      "name": "Woodstock Intl",
+      "code": "3658",
+      "rows": "2"
+    },
+    "Bow Products (BOWPR)": {
+      "name": "Bow Products",
+      "code": "BOWPR",
+      "rows": "5"
+    },
+    "Saw Stop LLC (SAWST)": {
+      "name": "Saw Stop LLC",
+      "code": "SAWST",
+      "rows": "5"
+    },
+    "Oliver Machinery Company (OLIMA)": {
+      "name": "Oliver Machinery Company",
+      "code": "OLIMA",
+      "rows": "6"
+    },
+    "J&G Machinery (JGMAC)": {
+      "name": "J&G Machinery",
+      "code": "JGMAC",
+      "rows": "1"
+    }
+  },
+  "unknown_units": {
+    "Torx": 10,
+    "Disc": 6,
+    "CF": 5,
+    "Post": 4,
+    "R": 4,
+    "Oct": 3,
+    "Bsmt": 2,
+    "S": 2,
+    "CCT": 2,
+    "X": 2,
+    "Spot": 2,
+    "I": 2,
+    "Ah": 2,
+    "ah": 2,
+    "Blank": 1,
+    "BL": 1,
+    "D": 1,
+    "Port": 1,
+    "Day": 1,
+    "BKFLU": 1,
+    "Satco": 1,
+    "Wall": 1,
+    "Load": 1,
+    "SJEWA": 1,
+    "UD": 1,
+    "CT": 1,
+    "Wal": 1,
+    "GL": 1,
+    "Line": 1,
+    "Fisch": 1,
+    "Hex": 1,
+    "Trox": 1,
+    "Ec": 1,
+    "GR": 1,
+    "CMT": 1,
+    "SFX": 1,
+    "AH": 1,
+    "HEPA": 1,
+    "Stock": 1
+  },
+  "observed_families": {
+    "HIOLIT": {
+      "length": 2
+    },
+    "Demon Metal Cut-Off Disc": {
+      "length": 7
+    },
+    "Metal Cut Off Disc": {
+      "length": 63,
+      "count": 2
+    },
+    "Off Disc General Purpose": {
+      "length": 6
+    },
+    "Cut and Grind Disc": {
+      "length": 9
+    },
+    "Masonry Cut Off Disc": {
+      "length": 21
+    },
+    "Metal Grinding Wheel": {
+      "length": 15
+    },
+    "Masonry Grinding Wheel": {
+      "length": 6
+    },
+    "Square Composite Balusters": {
+      "length": 4
+    },
+    "Fl Rail Kit Square": {
+      "length": 3
+    },
+    "Black Aluminum Balusters": {
+      "length": 5
+    },
+    "Rnd Black Aluminum Baluster": {
+      "length": 4
+    },
+    "Assembled Black Rail Panel": {
+      "length": 8
+    },
+    "Vintage PVC Decking": {
+      "length": 20
+    },
+    "Landmark PVC Decking": {
+      "length": 15
+    },
+    "Harvest PVC Decking": {
+      "length": 10
+    },
+    "Transcend Lineage Decking": {
+      "length": 35
+    },
+    "Enhance Naturals Decking": {
+      "length": 15
+    },
+    "Enhance Basics Decking": {
+      "length": 10
+    },
+    "Select Decking": {
+      "length": 14
+    },
+    "Vintage PVC Fascia": {
+      "length": 3
+    },
+    "Landmark PVC Fascia": {
+      "length": 3
+    },
+    "Harvest PVC Fascia": {
+      "length": 4
+    },
+    "Lineage": {
+      "length": 14
+    },
+    "Enhance Naturals Fascia": {
+      "length": 6
+    },
+    "Enhance Basics Fascia": {
+      "length": 4
+    },
+    "Select Fascia": {
+      "length": 6
+    },
+    "Elite Post Trim RDI": {
+      "count": 2
+    },
+    "Str Rail Kit Square": {
+      "length": 2
+    },
+    "Solar Shade RO": {
+      "length": 6
+    },
+    "Aluminum Threshold DBZ": {
+      "length": 2
+    },
+    "Doug Fir STK Smooth": {
+      "length": 4
+    },
+    "Rib XL Black": {
+      "length": 3
+    },
+    "Rib XL Charcoal": {
+      "length": 3
+    },
+    "Rib XL White": {
+      "length": 2
+    },
+    "Insulated R-Sheathing": {
+      "length": 3
+    },
+    "LED Ceiling Light": {
+      "length": 2
+    },
+    "Down Light White": {
+      "length": 2
+    },
+    "Down Light": {
+      "length": 2
+    },
+    "Ceiling Light White": {
+      "length": 2
+    },
+    "Ceiling Light Black": {
+      "length": 2
+    },
+    "LED Wrap Light": {
+      "length": 2
+    },
+    "Fluorescent T": {
+      "power": 2,
+      "length": 2,
+      "color temperature": 2
+    },
+    "Incandescent": {
+      "power": 2,
+      "color temperature": 2
+    },
+    "Incandescent Med": {
+      "power": 4,
+      "color temperature": 4
+    },
+    "Incandescent Cand": {
+      "power": 4,
+      "color temperature": 4,
+      "count": 4
+    },
+    "LED Bulb": {
+      "power": 2,
+      "color temperature": 1,
+      "count": 1
+    },
+    "LED Multi CCT": {
+      "power": 2,
+      "count": 2
+    },
+    "LED Med": {
+      "color temperature": 52,
+      "power": 49,
+      "count": 32
+    },
+    "LED ST": {
+      "power": 5,
+      "color temperature": 5,
+      "count": 5
+    },
+    "Adjustable Base": {
+      "power": 2,
+      "color temperature": 2,
+      "count": 2
+    },
+    "LED": {
+      "color temperature": 2,
+      "power": 1,
+      "count": 1
+    },
+    "LED Cand": {
+      "power": 8,
+      "count": 8,
+      "color temperature": 6
+    },
+    "LED BR Med": {
+      "power": 7,
+      "color temperature": 6,
+      "count": 1
+    },
+    "LED Par Med": {
+      "power": 5,
+      "color temperature": 5
+    },
+    "LED Par": {
+      "power": 2,
+      "color temperature": 2,
+      "count": 2
+    },
+    "Cand LED": {
+      "power": 4,
+      "color temperature": 4,
+      "count": 4
+    },
+    "Med LED": {
+      "power": 3,
+      "color temperature": 3,
+      "count": 2
+    },
+    "Load Center": {
+      "current": 1
+    },
+    "KW GFCI Outlet White": {
+      "current": 2
+    },
+    "Cord Connector": {
+      "current": 2,
+      "voltage": 2
+    },
+    "Display": {
+      "length": 1
+    },
+    "Electric Range Stainless Steel": {
+      "length": 3
+    },
+    "CT": {
+      "length": 1
+    },
+    "Staple": {
+      "length": 4
+    },
+    "MB Anisten Fan": {
+      "length": 2
+    },
+    "White Anisten Fan": {
+      "length": 2
+    },
+    "Insulated": {
+      "weight": 2
+    },
+    "Black Aluminum Post Wrap": {
+      "length": 8
+    },
+    "BigCal": {
+      "length": 4
+    },
+    "Mason Line Brd Orange": {
+      "length": 2
+    },
+    "Replacement": {
+      "length": 3
+    },
+    "Mason Line Brd Green": {
+      "length": 2
+    },
+    "Saw Blade": {
+      "length": 2
+    },
+    "Socket Adapter": {
+      "length": 6
+    },
+    "Mechanics Set": {
+      "length": 2,
+      "count": 2
+    },
+    "Hedge Trimmer": {
+      "length": 2
+    },
+    "Bit": {
+      "length": 9
+    },
+    "Drive Bit": {
+      "length": 3
+    },
+    "Square Drive Bit": {
+      "length": 4
+    },
+    "Torx Drive Bit": {
+      "length": 7
+    },
+    "Bare Tool": {
+      "voltage": 2,
+      "length": 1
+    },
+    "Angle Impact": {
+      "length": 3,
+      "voltage": 3
+    },
+    "Angle Grinder Bare": {
+      "length": 3,
+      "voltage": 2
+    },
+    "Laminate Wood Flooring": {
+      "length": 3
+    },
+    "Blade": {
+      "length": 1
+    },
+    "Tile Blade": {
+      "length": 5
+    },
+    "Ionic Circular Saw": {
+      "voltage": 2,
+      "length": 2
+    },
+    "XT XTENDER Fence": {
+      "length": 3
+    },
+    "XTP": {
+      "length": 2
+    },
+    "Starter Kit": {
+      "voltage": 1
+    },
+    "Ah Battery Pack": {
+      "voltage": 2
+    },
+    "Charger": {
+      "voltage": 2,
+      "current": 1
+    },
+    "Kit": {
+      "count": 1
+    },
+    "Oliver Benchtop Planer": {
+      "length": 2,
+      "power": 2,
+      "voltage": 2,
+      "electrical phase": 2
+    },
+    "Oliver Planer": {
+      "length": 2,
+      "power": 2,
+      "electrical phase": 2,
+      "voltage": 2
+    }
+  },
+  "value_vocab": {
+    "Color/Material": {
+      "White": 72,
+      "Black": 35,
+      "Stainless Steel": 32,
+      "Aluminum": 23,
+      "Almond": 4,
+      "Brushed Nickel": 2,
+      "Black Stainless Steel": 1,
+      "Clear": 1,
+      "Bronze": 1,
+      "Polished Brass": 1
+    }
+  },
+  "stats": {
+    "groups": 76.0,
+    "brands": 51.0,
+    "brand_candidates_for_review": 181.0,
+    "aliases": 59.0,
+    "product_types": 137.0,
+    "series": 42.0,
+    "unknown_unit_spellings": 39.0,
+    "attested_brands": 51.0
+  }
+}
