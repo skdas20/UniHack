@@ -50,6 +50,17 @@ from transformers import (
     set_seed,
 )
 
+# Label alignment and metrics live in tagging.py, which imports neither torch
+# nor transformers so it can be unit-tested without a GPU or a 2 GB install.
+# test_tagging.py covers both, including a pass over the real span data.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tagging import (  # noqa: E402
+    align_bio,
+    build_tag_list,
+    classification_metrics as _classification_metrics,
+    token_metrics as _token_metrics,
+)
+
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 MODELS = HERE / "models"
@@ -82,11 +93,11 @@ class Env:
     def describe(self) -> str:
         if self.device == "cuda":
             return (
-                f"{self.gpu_name} · {self.vram_gb:.1f} GB VRAM · "
-                f"batch {self.batch_size}×{self.grad_accum} · "
+                f"{self.gpu_name} - {self.vram_gb:.1f} GB VRAM - "
+                f"batch {self.batch_size}x{self.grad_accum} - "
                 f"{'fp16' if self.fp16 else 'fp32'}"
             )
-        return f"CPU only · batch {self.batch_size}×{self.grad_accum} (slow but works)"
+        return f"CPU only - batch {self.batch_size}x{self.grad_accum} (slow but works)"
 
 
 def detect_env() -> Env:
@@ -169,21 +180,7 @@ class SpanDataset(Dataset):
             return_offsets_mapping=True,
         )
         offsets = encoded.pop("offset_mapping")
-
-        labels = []
-        for start, end in offsets:
-            if start == end:  # special token or padding
-                labels.append(-100)
-                continue
-            tag = "O"
-            for entity in row["entities"]:
-                if start >= entity["start"] and end <= entity["end"]:
-                    prefix = "B" if start == entity["start"] else "I"
-                    candidate = f"{prefix}-{entity['label']}"
-                    if candidate in self.tag_to_id:
-                        tag = candidate
-                    break
-            labels.append(self.tag_to_id.get(tag, self.tag_to_id["O"]))
+        labels = align_bio(offsets, row["entities"], self.tag_to_id)
 
         out = {k: torch.tensor(v) for k, v in encoded.items()}
         out["labels"] = torch.tensor(labels)
@@ -196,72 +193,19 @@ class SpanDataset(Dataset):
 
 
 def classification_metrics(eval_pred) -> dict[str, float]:
+    """Trainer adapter around the tested implementation."""
     logits, labels = eval_pred
-    preds = np.argmax(logits, axis=-1)
-    accuracy = float((preds == labels).mean())
-
-    # macro F1, computed here rather than pulling in scikit-learn
-    f1s = []
-    for label in np.unique(labels):
-        tp = float(((preds == label) & (labels == label)).sum())
-        fp = float(((preds == label) & (labels != label)).sum())
-        fn = float(((preds != label) & (labels == label)).sum())
-        precision = tp / (tp + fp) if tp + fp else 0.0
-        recall = tp / (tp + fn) if tp + fn else 0.0
-        f1s.append(2 * precision * recall / (precision + recall) if precision + recall else 0.0)
-    return {"accuracy": accuracy, "macro_f1": float(np.mean(f1s)) if f1s else 0.0}
+    return _classification_metrics(logits, labels)
 
 
 def make_token_metrics(id_to_tag: dict[int, str]):
-    def token_metrics(eval_pred) -> dict[str, float]:
+    """Trainer adapter around the tested implementation."""
+
+    def compute(eval_pred) -> dict[str, float]:
         logits, labels = eval_pred
-        preds = np.argmax(logits, axis=-1)
-        mask = labels != -100
+        return _token_metrics(logits, labels, id_to_tag)
 
-        flat_pred = preds[mask]
-        flat_true = labels[mask]
-        accuracy = float((flat_pred == flat_true).mean()) if flat_true.size else 0.0
-
-        # entity-level micro F1 over decoded BIO spans
-        def spans(sequence: np.ndarray, valid: np.ndarray) -> set[tuple[int, int, str]]:
-            out: set[tuple[int, int, str]] = set()
-            start, current = None, None
-            for position, (tag_id, ok) in enumerate(zip(sequence, valid)):
-                if not ok:
-                    continue
-                tag = id_to_tag.get(int(tag_id), "O")
-                if tag.startswith("B-"):
-                    if start is not None and current:
-                        out.add((start, position, current))
-                    start, current = position, tag[2:]
-                elif tag.startswith("I-") and current == tag[2:]:
-                    continue
-                else:
-                    if start is not None and current:
-                        out.add((start, position, current))
-                    start, current = None, None
-            if start is not None and current:
-                out.add((start, len(sequence), current))
-            return out
-
-        tp = fp = fn = 0
-        for row_pred, row_true, row_mask in zip(preds, labels, mask):
-            predicted = spans(row_pred, row_mask)
-            actual = spans(row_true, row_mask)
-            tp += len(predicted & actual)
-            fp += len(predicted - actual)
-            fn += len(actual - predicted)
-        precision = tp / (tp + fp) if tp + fp else 0.0
-        recall = tp / (tp + fn) if tp + fn else 0.0
-        f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
-        return {
-            "token_accuracy": accuracy,
-            "entity_precision": precision,
-            "entity_recall": recall,
-            "entity_f1": f1,
-        }
-
-    return token_metrics
+    return compute
 
 
 # --------------------------------------------------------------------------
@@ -296,7 +240,7 @@ def build_args(env: Env, out_dir: Path, epochs: float, lr: float) -> TrainingArg
 
 def train_classpath(env: Env, model_name: str, epochs: float) -> dict:
     print("\n" + "=" * 72)
-    print("TASK 1/2 · classpath classifier")
+    print("TASK 1/2 - classpath classifier")
     print("=" * 72)
 
     train_rows = read_jsonl(DATA / "classpath_train.jsonl")
@@ -305,7 +249,7 @@ def train_classpath(env: Env, model_name: str, epochs: float) -> dict:
     labels = meta["classpath_labels"]
     label_to_id = {label: i for i, label in enumerate(labels)}
 
-    print(f"  train {len(train_rows):,} · val {len(val_rows):,} · {len(labels)} classes")
+    print(f"  train {len(train_rows):,} - val {len(val_rows):,} - {len(labels)} classes")
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(
@@ -338,7 +282,7 @@ def train_classpath(env: Env, model_name: str, epochs: float) -> dict:
 
     print(f"\n  accuracy  {metrics.get('eval_accuracy', 0):.4f}")
     print(f"  macro F1  {metrics.get('eval_macro_f1', 0):.4f}")
-    print(f"  trained in {elapsed/60:.1f} min · saved to {out_dir}")
+    print(f"  trained in {elapsed/60:.1f} min - saved to {out_dir}")
     return {
         "task": "classpath",
         "model": model_name,
@@ -353,20 +297,18 @@ def train_classpath(env: Env, model_name: str, epochs: float) -> dict:
 
 def train_spans(env: Env, model_name: str, epochs: float) -> dict:
     print("\n" + "=" * 72)
-    print("TASK 2/2 · attribute span tagger")
+    print("TASK 2/2 - attribute span tagger")
     print("=" * 72)
 
     train_rows = read_jsonl(DATA / "spans_train.jsonl")
     val_rows = read_jsonl(DATA / "spans_val.jsonl")
     meta = json.loads((DATA / "meta.json").read_text(encoding="utf-8"))
 
-    tags = ["O"]
-    for label in meta["span_labels"]:
-        tags += [f"B-{label}", f"I-{label}"]
+    tags = build_tag_list(meta["span_labels"])
     tag_to_id = {tag: i for i, tag in enumerate(tags)}
     id_to_tag = {i: tag for tag, i in tag_to_id.items()}
 
-    print(f"  train {len(train_rows):,} · val {len(val_rows):,} · {len(tags)} BIO tags")
+    print(f"  train {len(train_rows):,} - val {len(val_rows):,} - {len(tags)} BIO tags")
 
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
     if not tokenizer.is_fast:
@@ -403,7 +345,7 @@ def train_spans(env: Env, model_name: str, epochs: float) -> dict:
     print(f"  entity precision  {metrics.get('eval_entity_precision', 0):.4f}")
     print(f"  entity recall     {metrics.get('eval_entity_recall', 0):.4f}")
     print(f"  entity F1         {metrics.get('eval_entity_f1', 0):.4f}")
-    print(f"  trained in {elapsed/60:.1f} min · saved to {out_dir}")
+    print(f"  trained in {elapsed/60:.1f} min - saved to {out_dir}")
     return {
         "task": "spans",
         "model": model_name,
@@ -438,7 +380,7 @@ def main() -> int:
         env.batch_size = args.batch_size
 
     print("=" * 72)
-    print("GlassBox · local model training")
+    print("GlassBox - local model training")
     print("=" * 72)
     print(f"  python      {platform.python_version()} on {platform.system()}")
     print(f"  torch       {torch.__version__}")

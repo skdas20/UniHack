@@ -71,7 +71,25 @@ python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_
 You want `True` and your card's name. If it says `False`, the CPU-only torch got
 installed — `pip uninstall torch` and redo step 2 with the index URL.
 
-## 3. Run it
+## 3. Two 10-second checks first
+
+Both need nothing but the standard library and numpy, and between them they rule
+out the two ways this usually wastes an evening:
+
+```bash
+python validate_data.py    # did the data arrive intact and consistent?
+python test_tagging.py     # is the label-alignment logic correct?
+```
+
+You want `Data is consistent.` and `all passed`. If either complains, stop and
+send me the output — don't try to fix it.
+
+(These exist because I don't have a GPU and couldn't run `train.py` end to end
+before handing it over. The label alignment and the metrics are the parts most
+likely to be silently wrong, so they're covered by tests that run anywhere,
+including a pass over all 560 real span examples.)
+
+## 4. Run it
 
 ```bash
 python train.py
@@ -85,7 +103,13 @@ That's the whole thing. The script:
 - prints the scores;
 - writes everything to `models/`.
 
-Expected wall time on a 6 GB card: roughly **3–8 minutes for the classifier**
+One thing to expect in the output: the class distribution is uneven. The
+commonest category has 117 training examples and the rarest has 5, because that
+is how the source catalogue is shaped -- 114 rows of LED lamps, 3 of skylights.
+Macro F1 will therefore sit meaningfully below accuracy, and that is the honest
+number to quote. Don't be alarmed by it.
+
+Expected wall time on a 6 GB card: roughly **3-8 minutes for the classifier**
 and **2–5 minutes for the span tagger**. On CPU it still completes, just take
 20–40 minutes.
 
@@ -108,7 +132,7 @@ TASK 1/2 · classpath classifier
   macro F1  0.9x
 ```
 
-## 4. Send back one folder
+## 5. Send back one folder
 
 When it finishes you'll have:
 
