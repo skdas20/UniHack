@@ -110,23 +110,23 @@ Macro F1 will therefore sit meaningfully below accuracy, and that is the honest
 number to quote. Don't be alarmed by it.
 
 Expected wall time on a 6 GB card: roughly **3-8 minutes for the classifier**
-and **2–5 minutes for the span tagger**. On CPU it still completes, just take
-20–40 minutes.
+and **2-5 minutes for the span tagger**. On CPU it still completes, it just
+takes 20-40 minutes.
 
 You'll see something like:
 
 ```
 ========================================================================
-GlassBox · local model training
+GlassBox - local model training
 ========================================================================
   python      3.11.9 on Windows
   torch       2.5.1+cu121
-  hardware    NVIDIA GeForce RTX 3060 Laptop GPU · 6.0 GB VRAM · batch 16×2 · fp16
+  hardware    NVIDIA GeForce RTX 3060 Laptop GPU - 6.0 GB VRAM - batch 16x2 - fp16
   backbone    distilbert-base-uncased
   epochs      6.0
 
-TASK 1/2 · classpath classifier
-  train 3,161 · val 430 · 77 classes
+TASK 1/2 - classpath classifier
+  train 3,161 - val 430 - 77 classes
   ...
   accuracy  0.9x
   macro F1  0.9x

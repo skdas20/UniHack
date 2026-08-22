@@ -3,3 +3,4 @@
 torch>=2.3
 transformers>=4.44
 sentence-transformers>=3.0
+pytest>=8.0  # test suite
