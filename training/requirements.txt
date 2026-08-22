@@ -1,0 +1,12 @@
+# GlassBox local-model training.
+#
+# Install torch FIRST, matched to your CUDA version, then this file.
+# See README.md step 2 -- pip will otherwise fetch a CPU-only torch and
+# training will be slow for no reason.
+
+transformers>=4.44,<5
+numpy>=1.26
+# Fast tokenizers (character offsets for the span tagger) come from here.
+tokenizers>=0.19
+# Only needed if you switch --model to microsoft/deberta-v3-small
+sentencepiece>=0.2 ; python_version >= "3.9"
