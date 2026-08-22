@@ -135,7 +135,13 @@ _NOISE_RE = re.compile(
 #: the registered marks the delivery format mandates on every brand name. The
 #: gold row is ``With CleanBoost™``, not ``With CleanBoostTM``. So these are
 #: parked in the Unicode private-use area across the NFKC call and restored.
-_PROTECTED = "®™©℠"
+#: The prime marks are here for the same reason as the registered marks, one
+#: step further on: NFKC decomposes U+2033 DOUBLE PRIME into *two* U+2032
+#: PRIME characters, so ``24″`` normalises to ``24''`` before the quote map
+#: ever sees it. That still parses as inches -- ``''`` is a declared alias --
+#: but it leaves the wrong glyphs in customer-facing copy. Protecting them
+#: means the quote map converts ``″`` straight to ``"``.
+_PROTECTED = "®™©℠″′"
 _PROTECT_MAP = {ch: chr(0xE000 + i) for i, ch in enumerate(_PROTECTED)}
 _RESTORE_MAP = {v: k for k, v in _PROTECT_MAP.items()}
 _PROTECT_RE = re.compile("|".join(map(re.escape, _PROTECT_MAP)))

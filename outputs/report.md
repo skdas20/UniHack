@@ -1,6 +1,6 @@
 # GlassBox enrichment report
 
-_Generated 2026-08-22T04:33:37.368963+00:00_
+_Generated 2026-08-22T04:34:49.862576+00:00_
 
 ## Run
 
@@ -17,8 +17,8 @@ _Generated 2026-08-22T04:33:37.368963+00:00_
 | needs_review | 382 |
 | needs_review_pct | 38.2 |
 | model_proposed_values | 0 |
-| elapsed_s | 4.631 |
-| rows_per_s | 215.9 |
+| elapsed_s | 4.275 |
+| rows_per_s | 233.9 |
 
 ## Compliance
 
