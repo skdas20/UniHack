@@ -4,11 +4,11 @@ numpy>=1.26
 openpyxl>=3.1
 rapidfuzz>=3.9
 XlsxWriter>=3.2
-python-dotenv>=1.0
 
 # --- demo UI ---
 streamlit>=1.37
-plotly>=5.22
 
-# --- optional LLM / embedding acceleration layer (NVIDIA NIM, OpenAI-compatible) ---
+# --- optional hosted-model layer (NVIDIA NIM, OpenAI-compatible).
+# Never imported unless the proposal layer is explicitly enabled, so the app
+# deploys and runs fine without a key.
 openai>=1.40
