@@ -759,10 +759,14 @@ def slide_future(slide, m):
 
 def slide_links(slide, m):
     set_heading(slide, "Links")
+    prototype = ARGS.prototype_url.strip()
+    video = ARGS.video_url.strip()
     rows = [
         ("GitHub public repository", "https://github.com/skdas20/UniHack", True),
-        ("Working prototype", "<paste your Streamlit / Hugging Face Space URL>", False),
-        ("Demo video (3 minutes)", "<paste your unlisted YouTube URL>", False),
+        ("Working prototype",
+         prototype or "<paste your live app URL>", bool(prototype)),
+        ("Demo video (3 minutes)",
+         video or "Submitted alongside this deck on the Hack2skill portal", bool(video)),
     ]
     y = 1.72
     for label, value, ready in rows:
@@ -771,8 +775,8 @@ def slide_links(slide, m):
         frame = shape.text_frame
         para(frame, label.upper(), size=8.5, bold=True,
              color=ACCENT if ready else WARN, first=True, space_after=3)
-        para(frame, value, size=12, bold=ready, color=INK if ready else WARN,
-             space_after=0)
+        para(frame, value, size=11 if len(value) > 46 else 12, bold=ready,
+             color=INK if ready else WARN, space_after=0)
         y += 0.94
 
     frame = textbox(slide, BODY_LEFT, 4.62, BODY_WIDTH, 0.6)
@@ -822,6 +826,22 @@ def drop_slides(prs, indices_1based) -> None:
         )
         prs.part.drop_rel(rId)
         xml_slides.remove(slides[index - 1])
+
+
+def parse_args():
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Build the UniHack prototype deck")
+    ap.add_argument("--prototype-url", default="", help="the live app URL")
+    ap.add_argument("--video-url", default="", help="the demo video URL")
+    ap.add_argument("--members", default="",
+                    help="comma-separated team member names for the title slide")
+    return ap.parse_args()
+
+
+ARGS = parse_args()
+if ARGS.members:
+    TEAM_MEMBERS = [n.strip() for n in ARGS.members.split(",") if n.strip()]
 
 
 def main() -> int:
