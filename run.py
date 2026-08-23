@@ -55,6 +55,12 @@ def main() -> int:
     ap.add_argument("--propose", action="store_true",
                     help="enable the optional hosted-model proposal layer "
                          "(requires NVIDIA_API_KEY; the core run never needs it)")
+    ap.add_argument("--models", action="store_true",
+                    help="enable the optional distilled local models from training/models/ "
+                         "(CPU-only, no network; classifies rows the rules cannot and "
+                         "fills attribute slots they missed)")
+    ap.add_argument("--model-dir", default="training/models",
+                    help="where the trained encoders live (classpath/ and spans/)")
     args = ap.parse_args()
 
     schema = OutputSchema.from_csv(args.schema)
@@ -73,6 +79,17 @@ def main() -> int:
         proposer = build_proposer()
         print(f"proposer: {'enabled' if proposer else 'unavailable (no API key) -- core run unaffected'}")
 
+    models = None
+    if args.models:
+        from glassbox.distill import LocalModels
+
+        models = LocalModels(args.model_dir)
+        if models.available():
+            print(f"models  : {args.model_dir} (classpath + spans, CPU inference)")
+        else:
+            print(f"models  : not found at {args.model_dir} -- continuing rules-only")
+            models = None
+
     vocab = None
     if args.vocab and Path(args.vocab).exists():
         from glassbox.induce import InducedVocabulary
@@ -80,7 +97,7 @@ def main() -> int:
         vocab = InducedVocabulary.from_json(args.vocab)
         print(f"vocab   : {args.vocab} ({len(vocab.brands)} brands reused)")
 
-    pipeline = Pipeline(schema, vocab=vocab, proposer=proposer)
+    pipeline = Pipeline(schema, vocab=vocab, proposer=proposer, models=models)
 
     def progress(done: int, total: int) -> None:
         pct = 100 * done / max(total, 1)

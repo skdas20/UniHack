@@ -62,7 +62,7 @@ from .render import (
     retail_description,
 )
 from .schema import NOT_DERIVABLE, PASSTHROUGH, OutputSchema, RawRow, load_input
-from .taxonomy import Classification, GroupPrior, classify, prepare_text
+from .taxonomy import Classification, GroupPrior, by_classpath, classify, prepare_text
 
 #: Optional hook: given the row context, propose extra values. Implemented by
 #: glassbox.enrich for the hosted-model path. Kept as a plain callable so the
@@ -95,6 +95,11 @@ class PipelineStats:
     needs_review: int = 0
     elapsed_s: float = 0.0
     proposals: int = 0
+    #: Rows whose category came from the distilled local classifier because
+    #: the rule engine had no lexical evidence for them.
+    model_classified: int = 0
+    #: Attribute slots the distilled span tagger filled that the rules missed.
+    model_span_fills: int = 0
 
     def as_dict(self) -> dict[str, float]:
         rows = max(self.rows, 1)
@@ -112,6 +117,8 @@ class PipelineStats:
             "needs_review": self.needs_review,
             "needs_review_pct": round(100 * self.needs_review / rows, 2),
             "model_proposed_values": self.proposals,
+            "model_classified_rows": self.model_classified,
+            "model_filled_slots": self.model_span_fills,
             "elapsed_s": round(self.elapsed_s, 3),
             "rows_per_s": round(self.rows / self.elapsed_s, 1) if self.elapsed_s else 0.0,
         }
@@ -126,15 +133,26 @@ class Pipeline:
         *,
         vocab: InducedVocabulary | None = None,
         proposer: Proposer | None = None,
+        models: "object | None" = None,
+        min_model_prob: float = 0.55,
     ) -> None:
         self.schema = schema
         self.vocab = vocab or InducedVocabulary()
         self.prior = GroupPrior()
         self.proposer = proposer
+        #: Optional distilled local models (glassbox.distill.LocalModels).
+        #: Duck-typed so the core never imports torch.
+        self.models = models
+        self.min_model_prob = min_model_prob
         self.stats = PipelineStats()
         self._series_lexicon: tuple[str, ...] = ()
         self._lov_words: dict[str, frozenset] = {}
         self.brand_prior: dict[str, tuple[str, float, int]] = {}
+        #: Caches filled by the batched model pre-pass: row index -> prediction
+        #: (None = the pre-pass rejected it) / span hits.
+        self._model_class: dict[int, object] = {}
+        self._model_spans: dict[int, list] = {}
+        self._prepassed = False
 
     # ---------- pass 1 ----------
 
@@ -151,6 +169,139 @@ class Pipeline:
             result = classify(prepare_text(row.desc, row.mpn), group=group)
             if result.ok and result.confidence >= 0.70:
                 self.prior.observe(group, result.category.classpath, result.confidence)
+
+    # ---------- optional local-model pre-pass ----------
+
+    def _model_prepass(self, rows: Sequence[RawRow]) -> None:
+        """Batch the neural work once, before the row loop.
+
+        ``enrich()`` is per-row and synchronous; neural inference is batched
+        and asynchronous to it. This pass replays the (cheap, deterministic)
+        rule classification to find the rows it cannot place, classifies those
+        with the distilled encoder, and runs the span tagger over every
+        description. Results are cached by row index and consumed inside
+        ``enrich()``, so the model only ever runs once per row.
+        """
+        self._prepassed = True
+        if self.models is None or not self.models.available():
+            return
+
+        unclassified: list[tuple[RawRow, str]] = []
+        bodies: dict[int, str] = {}
+        for row in rows:
+            group = T.clean(row.get("Part_Manuf"))
+            result = classify(
+                prepare_text(row.desc, row.mpn), group=group, prior=self.prior
+            )
+            full = T.clean(row.desc)
+            body, _stripped = T.strip_leading_mpn(full, row.mpn)
+            body, _noise = T.strip_noise(body)
+            bodies[row.index] = body
+            if not result.ok:
+                unclassified.append((row, prepare_text(row.desc, row.mpn)))
+
+        if unclassified:
+            predictions = self.models.classify_batch(
+                [text for _row, text in unclassified]
+            )
+            for (row, _text), pred in zip(unclassified, predictions):
+                self._model_class[row.index] = (
+                    pred if pred is not None and pred.prob >= self.min_model_prob else None
+                )
+
+        span_rows = [row for row in rows if bodies.get(row.index, "").strip()]
+        hits = self.models.tag_spans_batch([bodies[r.index] for r in span_rows])
+        for row, spans in zip(span_rows, hits):
+            if spans:
+                self._model_spans[row.index] = spans
+
+    def _model_classification(self, row: RawRow, text: str) -> Classification:
+        """Rule engine found nothing; ask the distilled classifier."""
+        from .provenance import Provenance, Source
+
+        declined = Classification(
+            None,
+            0.0,
+            Provenance(
+                Source.UNRESOLVED,
+                rule="taxonomy:model-declined",
+                confidence=0.0,
+                detail=(
+                    "no rule matched and the distilled classifier's confidence "
+                    f"was below {self.min_model_prob:.2f}; refusing to guess"
+                ),
+            ),
+        )
+        if self.models is None or not text.strip():
+            return declined
+
+        if row.index in self._model_class:
+            pred = self._model_class[row.index]
+        elif self._prepassed:
+            return declined  # the pre-pass already saw and rejected this row
+        else:
+            pred = self.models.classify(text)
+            if pred is not None and pred.prob < self.min_model_prob:
+                pred = None
+        if pred is None:
+            return declined
+
+        category = by_classpath().get(pred.classpath)
+        if category is None:  # a classpath outside the live taxonomy
+            return declined
+        return Classification(
+            category,
+            pred.prob,
+            Provenance(
+                Source.LOCAL_MODEL,
+                rule="taxonomy:model-distilled",
+                confidence=pred.prob,
+                detail=(
+                    "no lexical rule matched; classpath proposed by the distilled "
+                    "77-class encoder fine-tuned on the rule engine's confident "
+                    "output. Slot contract, crosswalk and descriptions below "
+                    "derive from this proposal."
+                ),
+            ),
+        )
+
+    def _apply_model_spans(
+        self, row: RawRow, ctx: ExtractionContext, contract: Contract, filled: dict
+    ) -> None:
+        """Fill contract slots the rules left empty, from validated model spans."""
+        from .distill import model_fill_slot, slot_label_map
+
+        if self.models is None:
+            return
+        hits = self._model_spans.get(row.index)
+        if hits is None:
+            if self._prepassed:
+                return  # pre-pass ran and found nothing worth caching
+            hits = self.models.tag_spans(ctx.text) if ctx.text.strip() else []
+
+        labels = slot_label_map()
+        for hit in hits:
+            if hit.prob < 0.50:
+                continue  # below this the tagger is guessing; validation alone
+                           # cannot rescue a span drawn on the wrong characters
+            label = labels.get(hit.label)
+            if not label:
+                continue
+            slot = contract.slot(label)
+            if slot is None:
+                continue  # not part of this category's contract
+            existing = filled.get(label)
+            if existing is not None and existing.value:
+                continue  # the rules already read this slot; never overwrite
+            if ctx.is_claimed(hit.start, hit.end):
+                continue  # those characters already produced another value
+            snippet = ctx.text[hit.start : hit.end]
+            made = model_fill_slot(slot, snippet, hit.prob, ctx.text, hit.start, hit.end)
+            if made is None:
+                continue  # failed LOV/bounds validation; not emitted at all
+            filled[label] = made
+            ctx.claim(hit.start, hit.end)
+            self.stats.model_span_fills += 1
 
     # ---------- pass 2 ----------
 
@@ -198,9 +349,16 @@ class Pipeline:
             prior=self.prior,
             evidence_text=full,
         )
+        if classification.category is None and self.models is not None:
+            # The rules have no lexical evidence. The distilled encoder was
+            # trained for exactly this fifth of the catalogue; its proposal
+            # is accepted only above min_model_prob and always flagged.
+            classification = self._model_classification(row, prepare_text(row.desc, mpn))
         category = classification.category
         if category is not None:
             self.stats.classified += 1
+            if classification.provenance.source is Source.LOCAL_MODEL:
+                self.stats.model_classified += 1
             out.set("Classpath", Cell(category.classpath, classification.provenance))
             for header, value in (
                 ("Dept", category.dept),
@@ -277,6 +435,11 @@ class Pipeline:
                         ),
                     ),
                 )
+
+        # Model span fills: slots the rules left empty, from spans the
+        # distilled tagger read out of the same characters a regex would.
+        if self.models is not None:
+            self._apply_model_spans(row, ctx, contract, filled)
 
         # -- 4. optional model proposals -----------------------------------
         if self.proposer is not None:
@@ -429,6 +592,8 @@ class Pipeline:
         started = time.perf_counter()
         self.stats = PipelineStats(rows=len(rows))
         self.learn(rows)
+        if self.models is not None:
+            self._model_prepass(rows)
         out: list[EnrichedRow] = []
         for i, row in enumerate(rows):
             out.append(self.enrich(row))

@@ -172,7 +172,7 @@ def load_rows(source: str, payload: bytes | None, limit: int) -> list[dict]:
 
 @st.cache_data(show_spinner=False, max_entries=4)
 def run_pipeline(
-    row_payload: list[dict], use_proposer: bool
+    row_payload: list[dict], use_proposer: bool, use_models: bool
 ) -> tuple[list[dict], dict, dict, dict]:
     """Enrich, and return JSON-safe structures so Streamlit can cache them."""
     schema = get_schema()
@@ -185,7 +185,15 @@ def run_pipeline(
 
         proposer = build_proposer()
 
-    pipeline = Pipeline(schema, vocab=get_vocab(), proposer=proposer)
+    models = None
+    if use_models:
+        from glassbox.distill import LocalModels
+
+        candidates = LocalModels()
+        if candidates.available():
+            models = candidates
+
+    pipeline = Pipeline(schema, vocab=get_vocab(), proposer=proposer, models=models)
     enriched = pipeline.run(rows)
 
     if proposer is not None:
@@ -364,6 +372,27 @@ with st.sidebar:
         st.caption("No `NVIDIA_API_KEY` in the environment — the deterministic "
                    "core runs unaffected.")
 
+    models_available = False
+    try:
+        from glassbox.distill import LocalModels
+
+        models_available = LocalModels().available()
+    except Exception:
+        models_available = False
+
+    use_models = st.toggle(
+        "Distilled local models (CPU)",
+        value=False,
+        disabled=not models_available,
+        help="Runs the two fine-tuned encoders from training/: classifies the "
+             "rows no rule matches and fills attribute slots the rules missed. "
+             "Every value is validated against its slot's vocabulary, tagged "
+             "local_model, and routed to review. CPU-only, no network.",
+    )
+    if not models_available:
+        st.caption("`training/models/` not found — toggle disabled; the rule "
+                   "engine alone drives the run.")
+
     st.divider()
     st.caption(
         "The engine needs no API key, no network and no model download. "
@@ -389,7 +418,9 @@ st.markdown(
 
 started = time.perf_counter()
 with st.spinner(f"Learning the catalogue's vocabulary, then enriching {len(row_payload)} rows…"):
-    rows, summary, _a, _b = run_pipeline(row_payload, use_proposer and proposer_available)
+    rows, summary, _a, _b = run_pipeline(
+        row_payload, use_proposer and proposer_available, use_models
+    )
 elapsed = time.perf_counter() - started
 
 run = summary["run"]

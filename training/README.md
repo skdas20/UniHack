@@ -162,6 +162,36 @@ kilobytes and it's what goes on the results slide.
 
 ---
 
+## 6. After training: evaluate, then serve
+
+Two eval scripts live next to `train.py`:
+
+```bash
+python eval_models.py --eval-only --cpu   # the two headline numbers (macro F1, entity F1)
+python full_eval.py                       # everything on docs/MODEL_EVAL.md's page:
+                                         #   per-class F1, confusion pairs, confidence
+                                         #   calibration, per-label span F1, CPU latency,
+                                         #   and rule-gap coverage on the 1000-row corpus
+```
+
+`full_eval.py` is the one to run before finishing the deck: it writes
+`models/full_eval.json`, which is every number in
+[`../docs/MODEL_EVAL.md`](../docs/MODEL_EVAL.md).
+
+The trained models are served in the main pipeline by
+[`../glassbox/distill.py`](../glassbox/distill.py):
+
+```bash
+cd ..
+python run.py --models     # rules + both encoders, CPU-only, no network
+```
+
+Everything the models emit is validated against the slot vocabularies, tagged
+`local_model` in the provenance sidecar, and routed to review — the
+confidence engine was built for them before they existed.
+
+---
+
 ## If something goes wrong
 
 | Symptom | Fix |
