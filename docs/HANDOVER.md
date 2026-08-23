@@ -137,9 +137,14 @@ CPU at zero marginal cost, which is the enterprise-scale answer.
 - `training/` package ready to hand to the GPU machine
 - Docs: `DERIVED_RULES.md`, `DEMO_VIDEO.md`, this file
 
-**Still to do:**
+**Not done, and deliberately not claimed:**
 
-- Run the training on a GPU → `training/README.md` (assigned)
+- The GPU training run never happened. The package is built, its data validated
+  and its logic tested, but no model was trained — so no trained-model accuracy
+  appears in the deck, the README, or the submission text. See
+  `docs/SUBMISSION.md` for the answer to give if a judge asks.
+
+**Still to do:**
 - Record the 3-minute video → `docs/DEMO_VIDEO.md`
 - Fill the mandatory deck → `docs/UniHack_Prototype_Template.pptx`
 - Deploy the app to Hugging Face Spaces for the live URL

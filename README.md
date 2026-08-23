@@ -230,14 +230,21 @@ vocabulary and plausibility bounds, tagged `Source.LLM`, weighted 0.50 against
 0.95 for a text extraction, and routed to review. Enable with `--propose`; see
 [`.env.example`](.env.example) for where the key goes.
 
-**Distilled local models** ([`training/`](training/)) — we take every row the
-rule engine classified confidently, treat its output as a silver label, and
-fine-tune two small encoders: a 77-class product classifier and a 38-type
-attribute span tagger. This is distillation: the model learns the pattern behind
-the rules and generalises to phrasings no rule covers, which is how the
-remaining 21% gets addressed. It runs on CPU in milliseconds at zero marginal
-cost — a distributor with 2M SKUs can process the catalogue inside their own
-VPC. Instructions: [`training/README.md`](training/README.md).
+**Distilled local models** ([`training/`](training/)) — **package built and
+validated; the fine-tuning run has not been executed, so no trained-model
+accuracy is claimed anywhere in this repository.**
+
+Every row the rule engine classified confidently becomes a silver label,
+yielding 3,591 examples over 77 classes for a product classifier and 636 span
+examples for a 38-type attribute tagger. The label-alignment and metric logic
+are unit-tested without torch — 21 checks including a pass over all 560 real
+span rows (`python training/test_tagging.py`), and the data is verified by
+`python training/validate_data.py`.
+
+The intent is distillation: the model learns the pattern behind the rules and
+generalises to phrasings no rule covers, addressing the 21% of rows currently
+routed to review, running on CPU at zero marginal cost. Instructions:
+[`training/README.md`](training/README.md).
 
 ---
 
