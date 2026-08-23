@@ -139,13 +139,28 @@ value is written `120 V` in long copy and `120V` in the invoice line.
 | Rows classified into the taxonomy | **79.3%** |
 | Brand resolved | **75.7%** |
 | Attribute contract slots filled from text alone | **23.1%** |
-| Auto-publishable / needs review / blocked | **471 / 439 / 90** |
-| Throughput | **~240 rows/sec**, single-threaded CPU |
-| Full 1,000-row run | **~7 seconds** |
+| Auto-publishable / needs review / blocked | **618 / 297 / 85** |
+| Throughput | **~330 rows/sec**, single-threaded CPU |
+| Full 1,000-row run | **~4 seconds** |
 
 We report the unflattering numbers too. 23.1% slot fill is low, and it is
 honest: most inputs are ten words long and simply do not contain a voltage. The
 optional model layer raises it; the audit trail keeps the two apart.
+
+### The distilled local models
+
+Two fine-tuned encoders (77-class classifier, 38-label span tagger) run on
+CPU and attach to the pipeline with `python run.py --models`. Full evaluation,
+per-class and per-label breakdowns, the near-duplicate audit behind the
+classifier's 1.000 macro F1, and latency measurements live in
+[`docs/MODEL_EVAL.md`](docs/MODEL_EVAL.md). The four quotable lines:
+
+| Metric | Result |
+|---|---|
+| Classifier macro F1 (val; on the 17 novel val rows; teacher agreement) | **1.000 / 1.000 / 100.0%** |
+| Span tagger entity F1 | **0.797** (P 0.839 / R 0.758) |
+| Corpus classification, rules → + model layer | **79.3% → 81.3%**, LOV compliance still 100% |
+| Full model layer on CPU | **21.9 ms/row → 2M SKUs overnight on one thread** |
 
 ---
 
@@ -192,6 +207,7 @@ optional model layer raises it; the audit trail keeps the two apart.
 | [`confidence.py`](glassbox/confidence.py) | Scores from provenance, not model self-report. Triage and specific review reasons. |
 | [`evaluate.py`](glassbox/evaluate.py) | Measures what is measurable; states plainly what is not. |
 | [`enrich.py`](glassbox/enrich.py) | The **optional** hosted-model layer. Proposals only, validated, labelled, never required. |
+| [`distill.py`](glassbox/distill.py) | The **optional** local-model layer. Serves the two distilled encoders on CPU; every span is validated and evidence-backed. |
 
 ### Details that took the most work to get right
 
@@ -235,9 +251,14 @@ rule engine classified confidently, treat its output as a silver label, and
 fine-tune two small encoders: a 77-class product classifier and a 38-type
 attribute span tagger. This is distillation: the model learns the pattern behind
 the rules and generalises to phrasings no rule covers, which is how the
-remaining 21% gets addressed. It runs on CPU in milliseconds at zero marginal
-cost — a distributor with 2M SKUs can process the catalogue inside their own
-VPC. Instructions: [`training/README.md`](training/README.md).
+remaining 21% gets addressed. The models are served by
+[`glassbox/distill.py`](glassbox/distill.py): `python run.py --models` turns
+them on (CPU-only, no network), every value they produce is validated against
+its slot's controlled vocabulary, tagged `local_model`, and routed to review.
+It runs on CPU in milliseconds at zero marginal cost — a distributor with 2M
+SKUs can process the catalogue inside their own VPC. Training and full
+evaluation instructions: [`training/README.md`](training/README.md) and
+[`docs/MODEL_EVAL.md`](docs/MODEL_EVAL.md).
 
 ---
 
@@ -262,9 +283,12 @@ run.py              the CLI
 
 ```bash
 python run.py                          # all run + compliance metrics
+python run.py --models                 # same run + the distilled local models
 python tests/test_gold_channels.py     # the 9/9 exact-match check
 python scripts/build_vocab.py          # the induction report
 python -m pytest tests -q              # the test suite
+cd training && python eval_models.py --eval-only --cpu   # headline model metrics
+cd training && python full_eval.py     # the full model evaluation
 ```
 
 `outputs/report.md` is written on every run and contains the full metric set,
